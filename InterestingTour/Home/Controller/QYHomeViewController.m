@@ -1,23 +1,22 @@
 //
-//  ViewController.m
+//  QYHomeViewController.m
 //  InterestingTour
 //
 //  Created by 厉威 on 2019/12/19.
 //  Copyright © 2019 厉威. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "QYHomeViewController.h"
 
-@interface ViewController ()
+@interface QYHomeViewController ()
 
 @end
 
-@implementation ViewController
+@implementation QYHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = UIColor.redColor;
 }
-
 
 @end

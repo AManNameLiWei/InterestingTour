@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  QYNavigationController.h
 //  InterestingTour
 //
 //  Created by 厉威 on 2019/12/19.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface QYNavigationController : UINavigationController
 
 @end
 
+NS_ASSUME_NONNULL_END

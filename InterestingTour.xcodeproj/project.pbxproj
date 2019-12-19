@@ -7,28 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D014E3B223AB5DE6003218CC /* QYRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D014E3B123AB5DE6003218CC /* QYRootViewController.m */; };
+		D014E3B623AB5F6D003218CC /* QYTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D014E3B523AB5F6D003218CC /* QYTabBarController.m */; };
 		D02A1FC423AB5125005B31C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A1FC323AB5125005B31C9 /* AppDelegate.m */; };
-		D02A1FC723AB5125005B31C9 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A1FC623AB5125005B31C9 /* SceneDelegate.m */; };
-		D02A1FCA23AB5125005B31C9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A1FC923AB5125005B31C9 /* ViewController.m */; };
-		D02A1FCD23AB5125005B31C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D02A1FCB23AB5125005B31C9 /* Main.storyboard */; };
 		D02A1FCF23AB5125005B31C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D02A1FCE23AB5125005B31C9 /* Assets.xcassets */; };
 		D02A1FD223AB5125005B31C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D02A1FD023AB5125005B31C9 /* LaunchScreen.storyboard */; };
 		D02A1FD523AB5125005B31C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A1FD423AB5125005B31C9 /* main.m */; };
+		D0FB447E23AB63CF0012783D /* QYHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FB447D23AB63CF0012783D /* QYHomeViewController.m */; };
+		D0FB448323AB691A0012783D /* QYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FB448223AB691A0012783D /* QYNavigationController.m */; };
+		D0FB448D23AB6A300012783D /* QYMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FB448C23AB6A300012783D /* QYMineViewController.m */; };
+		D0FB449023AB6A490012783D /* QYTravelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FB448F23AB6A490012783D /* QYTravelViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D014E3B023AB5DE6003218CC /* QYRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYRootViewController.h; sourceTree = "<group>"; };
+		D014E3B123AB5DE6003218CC /* QYRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYRootViewController.m; sourceTree = "<group>"; };
+		D014E3B423AB5F6D003218CC /* QYTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYTabBarController.h; sourceTree = "<group>"; };
+		D014E3B523AB5F6D003218CC /* QYTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYTabBarController.m; sourceTree = "<group>"; };
 		D02A1FBF23AB5125005B31C9 /* InterestingTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InterestingTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02A1FC223AB5125005B31C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D02A1FC323AB5125005B31C9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D02A1FC523AB5125005B31C9 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		D02A1FC623AB5125005B31C9 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		D02A1FC823AB5125005B31C9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D02A1FC923AB5125005B31C9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		D02A1FCC23AB5125005B31C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D02A1FCE23AB5125005B31C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D02A1FD123AB5125005B31C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D02A1FD323AB5125005B31C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D02A1FD423AB5125005B31C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D0FB447C23AB63CF0012783D /* QYHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYHomeViewController.h; sourceTree = "<group>"; };
+		D0FB447D23AB63CF0012783D /* QYHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYHomeViewController.m; sourceTree = "<group>"; };
+		D0FB448123AB691A0012783D /* QYNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYNavigationController.h; sourceTree = "<group>"; };
+		D0FB448223AB691A0012783D /* QYNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYNavigationController.m; sourceTree = "<group>"; };
+		D0FB448B23AB6A300012783D /* QYMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYMineViewController.h; sourceTree = "<group>"; };
+		D0FB448C23AB6A300012783D /* QYMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMineViewController.m; sourceTree = "<group>"; };
+		D0FB448E23AB6A490012783D /* QYTravelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYTravelViewController.h; sourceTree = "<group>"; };
+		D0FB448F23AB6A490012783D /* QYTravelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYTravelViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +52,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D014E3AC23AB5D71003218CC /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				D02A1FC223AB5125005B31C9 /* AppDelegate.h */,
+				D02A1FC323AB5125005B31C9 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		D014E3AD23AB5D88003218CC /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D0FB448023AB68D10012783D /* NavigationController */,
+				D014E3B323AB5DF4003218CC /* TabbarController */,
+				D014E3AF23AB5DB9003218CC /* RootViewController */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D014E3AE23AB5D96003218CC /* SurpportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D02A1FD323AB5125005B31C9 /* Info.plist */,
+				D02A1FCE23AB5125005B31C9 /* Assets.xcassets */,
+				D02A1FD023AB5125005B31C9 /* LaunchScreen.storyboard */,
+				D02A1FD423AB5125005B31C9 /* main.m */,
+			);
+			path = SurpportFiles;
+			sourceTree = "<group>";
+		};
+		D014E3AF23AB5DB9003218CC /* RootViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D014E3B023AB5DE6003218CC /* QYRootViewController.h */,
+				D014E3B123AB5DE6003218CC /* QYRootViewController.m */,
+			);
+			path = RootViewController;
+			sourceTree = "<group>";
+		};
+		D014E3B323AB5DF4003218CC /* TabbarController */ = {
+			isa = PBXGroup;
+			children = (
+				D014E3B423AB5F6D003218CC /* QYTabBarController.h */,
+				D014E3B523AB5F6D003218CC /* QYTabBarController.m */,
+			);
+			path = TabbarController;
+			sourceTree = "<group>";
+		};
 		D02A1FB623AB5125005B31C9 = {
 			isa = PBXGroup;
 			children = (
@@ -61,19 +119,122 @@
 		D02A1FC123AB5125005B31C9 /* InterestingTour */ = {
 			isa = PBXGroup;
 			children = (
-				D02A1FC223AB5125005B31C9 /* AppDelegate.h */,
-				D02A1FC323AB5125005B31C9 /* AppDelegate.m */,
-				D02A1FC523AB5125005B31C9 /* SceneDelegate.h */,
-				D02A1FC623AB5125005B31C9 /* SceneDelegate.m */,
-				D02A1FC823AB5125005B31C9 /* ViewController.h */,
-				D02A1FC923AB5125005B31C9 /* ViewController.m */,
-				D02A1FCB23AB5125005B31C9 /* Main.storyboard */,
-				D02A1FCE23AB5125005B31C9 /* Assets.xcassets */,
-				D02A1FD023AB5125005B31C9 /* LaunchScreen.storyboard */,
-				D02A1FD323AB5125005B31C9 /* Info.plist */,
-				D02A1FD423AB5125005B31C9 /* main.m */,
+				D014E3AC23AB5D71003218CC /* AppDelegate */,
+				D014E3AD23AB5D88003218CC /* Base */,
+				D0FB447823AB63940012783D /* Home */,
+				D0FB447F23AB687F0012783D /* Travel */,
+				D0FB448723AB69D10012783D /* Mine */,
+				D014E3AE23AB5D96003218CC /* SurpportFiles */,
 			);
 			path = InterestingTour;
+			sourceTree = "<group>";
+		};
+		D0FB447823AB63940012783D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D0FB447B23AB63B70012783D /* Model */,
+				D0FB447A23AB63B10012783D /* View */,
+				D0FB447923AB63A30012783D /* Controller */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D0FB447923AB63A30012783D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D0FB447C23AB63CF0012783D /* QYHomeViewController.h */,
+				D0FB447D23AB63CF0012783D /* QYHomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D0FB447A23AB63B10012783D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D0FB447B23AB63B70012783D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D0FB447F23AB687F0012783D /* Travel */ = {
+			isa = PBXGroup;
+			children = (
+				D0FB448623AB69BC0012783D /* Model */,
+				D0FB448523AB69B00012783D /* View */,
+				D0FB448423AB69AA0012783D /* Controller */,
+			);
+			path = Travel;
+			sourceTree = "<group>";
+		};
+		D0FB448023AB68D10012783D /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				D0FB448123AB691A0012783D /* QYNavigationController.h */,
+				D0FB448223AB691A0012783D /* QYNavigationController.m */,
+			);
+			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		D0FB448423AB69AA0012783D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D0FB448B23AB6A300012783D /* QYMineViewController.h */,
+				D0FB448C23AB6A300012783D /* QYMineViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D0FB448523AB69B00012783D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D0FB448623AB69BC0012783D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D0FB448723AB69D10012783D /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				D0FB448A23AB6A0F0012783D /* Model */,
+				D0FB448923AB6A090012783D /* View */,
+				D0FB448823AB6A000012783D /* Controller */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		D0FB448823AB6A000012783D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D0FB448E23AB6A490012783D /* QYTravelViewController.h */,
+				D0FB448F23AB6A490012783D /* QYTravelViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D0FB448923AB6A090012783D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D0FB448A23AB6A0F0012783D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +296,6 @@
 			files = (
 				D02A1FD223AB5125005B31C9 /* LaunchScreen.storyboard in Resources */,
 				D02A1FCF23AB5125005B31C9 /* Assets.xcassets in Resources */,
-				D02A1FCD23AB5125005B31C9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,24 +306,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D02A1FCA23AB5125005B31C9 /* ViewController.m in Sources */,
+				D014E3B623AB5F6D003218CC /* QYTabBarController.m in Sources */,
+				D0FB448323AB691A0012783D /* QYNavigationController.m in Sources */,
+				D0FB449023AB6A490012783D /* QYTravelViewController.m in Sources */,
+				D0FB448D23AB6A300012783D /* QYMineViewController.m in Sources */,
 				D02A1FC423AB5125005B31C9 /* AppDelegate.m in Sources */,
 				D02A1FD523AB5125005B31C9 /* main.m in Sources */,
-				D02A1FC723AB5125005B31C9 /* SceneDelegate.m in Sources */,
+				D0FB447E23AB63CF0012783D /* QYHomeViewController.m in Sources */,
+				D014E3B223AB5DE6003218CC /* QYRootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D02A1FCB23AB5125005B31C9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D02A1FCC23AB5125005B31C9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D02A1FD023AB5125005B31C9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -291,7 +447,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8VXMPN8JV;
-				INFOPLIST_FILE = InterestingTour/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/InterestingTour/SurpportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,7 +464,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8VXMPN8JV;
-				INFOPLIST_FILE = InterestingTour/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/InterestingTour/SurpportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
