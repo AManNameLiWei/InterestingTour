@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"行程";
     self.view.backgroundColor = UIColor.greenColor;
 }
 

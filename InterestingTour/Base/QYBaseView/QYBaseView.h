@@ -1,5 +1,5 @@
 //
-//  QYRootViewController.h
+//  QYBaseView.h
 //  InterestingTour
 //
 //  Created by 厉威 on 2019/12/19.
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QYRootViewController : UIViewController
+@interface QYBaseView : UIView
 
 @end
 

@@ -15,6 +15,9 @@
 		D02A1FD223AB5125005B31C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D02A1FD023AB5125005B31C9 /* LaunchScreen.storyboard */; };
 		D02A1FD523AB5125005B31C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A1FD423AB5125005B31C9 /* main.m */; };
 		D068AB4C23AB886E0034D427 /* UIView+FrameExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D068AB4B23AB886E0034D427 /* UIView+FrameExtension.m */; };
+		D068AB4F23AB93530034D427 /* QYCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D068AB4E23AB93530034D427 /* QYCycleScrollView.m */; };
+		D068AB5423AB99380034D427 /* QYBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = D068AB5323AB99380034D427 /* QYBaseView.m */; };
+		D068AB5823AB99750034D427 /* QYBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D068AB5723AB99750034D427 /* QYBaseModel.m */; };
 		D0FB447E23AB63CF0012783D /* QYHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FB447D23AB63CF0012783D /* QYHomeViewController.m */; };
 		D0FB448323AB691A0012783D /* QYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FB448223AB691A0012783D /* QYNavigationController.m */; };
 		D0FB448D23AB6A300012783D /* QYMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FB448C23AB6A300012783D /* QYMineViewController.m */; };
@@ -43,6 +46,13 @@
 		D02A1FD423AB5125005B31C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D068AB4A23AB886D0034D427 /* UIView+FrameExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameExtension.h"; sourceTree = "<group>"; };
 		D068AB4B23AB886E0034D427 /* UIView+FrameExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameExtension.m"; sourceTree = "<group>"; };
+		D068AB4D23AB93530034D427 /* QYCycleScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYCycleScrollView.h; sourceTree = "<group>"; };
+		D068AB4E23AB93530034D427 /* QYCycleScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYCycleScrollView.m; sourceTree = "<group>"; };
+		D068AB5023AB97460034D427 /* UtilsMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilsMacros.h; sourceTree = "<group>"; };
+		D068AB5223AB99380034D427 /* QYBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYBaseView.h; sourceTree = "<group>"; };
+		D068AB5323AB99380034D427 /* QYBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYBaseView.m; sourceTree = "<group>"; };
+		D068AB5623AB99750034D427 /* QYBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYBaseModel.h; sourceTree = "<group>"; };
+		D068AB5723AB99750034D427 /* QYBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYBaseModel.m; sourceTree = "<group>"; };
 		D0FB447C23AB63CF0012783D /* QYHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYHomeViewController.h; sourceTree = "<group>"; };
 		D0FB447D23AB63CF0012783D /* QYHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYHomeViewController.m; sourceTree = "<group>"; };
 		D0FB448123AB691A0012783D /* QYNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYNavigationController.h; sourceTree = "<group>"; };
@@ -96,8 +106,10 @@
 		D014E3AD23AB5D88003218CC /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				D068AB5523AB99500034D427 /* QYBaseModel */,
 				D0FB448023AB68D10012783D /* NavigationController */,
 				D014E3B323AB5DF4003218CC /* TabbarController */,
+				D068AB5123AB98F60034D427 /* QYBaseView */,
 				D014E3AF23AB5DB9003218CC /* RootViewController */,
 			);
 			path = Base;
@@ -175,6 +187,24 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		D068AB5123AB98F60034D427 /* QYBaseView */ = {
+			isa = PBXGroup;
+			children = (
+				D068AB5223AB99380034D427 /* QYBaseView.h */,
+				D068AB5323AB99380034D427 /* QYBaseView.m */,
+			);
+			path = QYBaseView;
+			sourceTree = "<group>";
+		};
+		D068AB5523AB99500034D427 /* QYBaseModel */ = {
+			isa = PBXGroup;
+			children = (
+				D068AB5623AB99750034D427 /* QYBaseModel.h */,
+				D068AB5723AB99750034D427 /* QYBaseModel.m */,
+			);
+			path = QYBaseModel;
+			sourceTree = "<group>";
+		};
 		D0FB447823AB63940012783D /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +227,8 @@
 		D0FB447A23AB63B10012783D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D068AB4D23AB93530034D427 /* QYCycleScrollView.h */,
+				D068AB4E23AB93530034D427 /* QYCycleScrollView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -312,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				D0FB44A323AB82490012783D /* ColorMacros.h */,
+				D068AB5023AB97460034D427 /* UtilsMacros.h */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -447,10 +480,13 @@
 				D0FB449023AB6A490012783D /* QYTravelViewController.m in Sources */,
 				D0FB448D23AB6A300012783D /* QYMineViewController.m in Sources */,
 				D068AB4C23AB886E0034D427 /* UIView+FrameExtension.m in Sources */,
+				D068AB4F23AB93530034D427 /* QYCycleScrollView.m in Sources */,
 				D02A1FC423AB5125005B31C9 /* AppDelegate.m in Sources */,
+				D068AB5423AB99380034D427 /* QYBaseView.m in Sources */,
 				D02A1FD523AB5125005B31C9 /* main.m in Sources */,
 				D0FB447E23AB63CF0012783D /* QYHomeViewController.m in Sources */,
 				D0FB44A023AB81940012783D /* TFBURLRequest.m in Sources */,
+				D068AB5823AB99750034D427 /* QYBaseModel.m in Sources */,
 				D014E3B223AB5DE6003218CC /* QYRootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,7 +555,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -571,7 +607,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
