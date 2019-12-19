@@ -1,0 +1,7 @@
+使用方法:导入LWNetworkManager.h
+1.由LWNetworkHelper 直接调用4个正常传入参数的类方法
+2.由lWNetworkManager调用3个传入requestBlock参数的类方法  该类方法会将requestBlock参数传入LWNetworkHelper类实现网络请求
+3.request类以及response类可以自定义参数，用于发送请求和接收响应
+4.默认HTTPMethod为“POST”，若使用其它方法需要手动修改
+
+<由于本框架是对AFNetworking的二次封装，需要在工程内引入AFNetWorking>

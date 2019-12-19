@@ -1,0 +1,15 @@
+//
+//  InterestingTourPCH.pch
+//  InterestingTour
+//
+//  Created by 厉威 on 2019/12/19.
+//  Copyright © 2019 厉威. All rights reserved.
+//
+
+#ifndef InterestingTourPCH_pch
+#define InterestingTourPCH_pch
+
+#import "ColorMacros.h"
+#import "UIView+FrameExtension.h"
+
+#endif /* InterestingTourPCH_pch */
