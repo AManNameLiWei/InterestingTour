@@ -7,11 +7,12 @@
 //
 
 #import "QYBaseView.h"
-
+@class RACSubject;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QYLoginView : QYBaseView
-
+@property (nonatomic, strong) RACSubject *loginBtnClickSubject;
+@property (nonatomic, strong) RACSubject *forgetPwdBtnClickSubject;
 @end
 
 NS_ASSUME_NONNULL_END

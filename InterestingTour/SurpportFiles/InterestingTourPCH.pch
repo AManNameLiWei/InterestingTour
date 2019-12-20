@@ -13,5 +13,6 @@
 #import "UIView+FrameExtension.h"
 #import "UtilsMacros.h"
 #import "ThirdKeyMacros.h"
+#import "CommonMacros.h"
 
 #endif /* InterestingTourPCH_pch */

@@ -7,11 +7,12 @@
 //
 
 #import "QYBaseView.h"
-
+@class RACSubject;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QYRegisterView : QYBaseView
-
+@property (nonatomic, strong) RACSubject *registerBtnClickSubject;
+@property (nonatomic, strong) RACSubject *getVerificationCodeSubject;
 @end
 
 NS_ASSUME_NONNULL_END

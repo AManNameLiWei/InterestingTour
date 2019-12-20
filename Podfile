@@ -13,4 +13,5 @@ target 'InterestingTour' do
     pod 'SDCycleScrollView'
     pod 'IQKeyboardManager'
     pod 'ReactiveObjC'
+    pod 'Toast'
 end

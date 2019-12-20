@@ -9,11 +9,18 @@
 #import "QYLoginView.h"
 #import <ReactiveObjC.h>
 
+@interface QYLoginView ()
+@property (nonatomic, strong) UITextField *phoneTextField;
+@property (nonatomic, strong) UITextField *pwdTextField;
+@end
+
 @implementation QYLoginView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.loginBtnClickSubject = [RACSubject subject];
+        self.forgetPwdBtnClickSubject = [RACSubject subject];
         [self setupUI];
     }
     return self;
@@ -32,6 +39,7 @@
     }];
     
     UITextField *phoneTextField = [[UITextField alloc] init];
+    self.phoneTextField = phoneTextField;
     phoneTextField.placeholder = @"请输入手机号";
     phoneTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     phoneTextField.borderStyle = UITextBorderStyleNone;
@@ -54,6 +62,7 @@
     }];
 
     UITextField *passwordTextField = [[UITextField alloc] init];
+    self.pwdTextField = passwordTextField;
     passwordTextField.placeholder = @"请输入新密码";
     passwordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     passwordTextField.borderStyle = UITextBorderStyleNone;
@@ -111,7 +120,9 @@
 
 #pragma mark ------- 确认登录按钮点击
 - (void)confirmLoginBtnclick {
-    
+    if (self.loginBtnClickSubject) {
+        [self.loginBtnClickSubject sendNext:@{@"phoneNum": self.phoneTextField.text, @"pwd": self.pwdTextField.text}];
+    }
 }
 
 #pragma mark ------- 忘记密码按钮点击

@@ -47,6 +47,7 @@
 		D014E3B123AB5DE6003218CC /* QYRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYRootViewController.m; sourceTree = "<group>"; };
 		D014E3B423AB5F6D003218CC /* QYTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYTabBarController.h; sourceTree = "<group>"; };
 		D014E3B523AB5F6D003218CC /* QYTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYTabBarController.m; sourceTree = "<group>"; };
+		D01AEB8D23ACC1420023627E /* CommonMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonMacros.h; sourceTree = "<group>"; };
 		D02A1FBF23AB5125005B31C9 /* 趣游.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "趣游.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02A1FC223AB5125005B31C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D02A1FC323AB5125005B31C9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -512,6 +513,7 @@
 				D0FB44A323AB82490012783D /* ColorMacros.h */,
 				D068AB5023AB97460034D427 /* UtilsMacros.h */,
 				D068AB6223AC5BAB0034D427 /* ThirdKeyMacros.h */,
+				D01AEB8D23ACC1420023627E /* CommonMacros.h */,
 			);
 			path = Define;
 			sourceTree = "<group>";

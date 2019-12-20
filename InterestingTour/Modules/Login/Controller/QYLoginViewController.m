@@ -10,6 +10,7 @@
 #import "QYMineViewController.h"
 #import "QYRegisterViewController.h"
 #import "QYLoginView.h"
+#import <BmobSDK/Bmob.h>
 
 @interface QYLoginViewController ()
 
@@ -36,6 +37,15 @@
 
 - (void)initViews {
     QYLoginView *loginView = [[QYLoginView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight+kStatusBarHeight, kScreenWidth, kScreenHeight-kStatusBarHeight-kNavigationBarHeight-kTabbarHeight)];
+    [[loginView.loginBtnClickSubject ignore:nil] subscribeNext:^(NSDictionary * _Nullable x) {
+        [BmobUser loginInbackgroundWithAccount:x[@"phoneNum"] andPassword:x[@"pwd"] block:^(BmobUser *user, NSError *error) {
+        if (user) {
+            KPostNotification(kNotificationNameLoginSuccess, nil);
+        } else {
+        NSLog(@"%@",error);
+        }
+        }];
+    }];
     [self.view addSubview:loginView];
 }
 
