@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "QYTabBarController.h"
+#import <BmobSDK/Bmob.h>
+#import <IQKeyboardManager.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +19,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //后端云
+    [Bmob registerWithAppKey:BMOB_APP_KEY];
+    
+    //IQKeyboardManager
+    [IQKeyboardManager sharedManager].enable = YES;
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
+    [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = UIColor.whiteColor;
     self.window.rootViewController = [[QYTabBarController alloc] init];
