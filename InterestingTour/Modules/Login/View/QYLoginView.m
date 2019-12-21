@@ -62,6 +62,7 @@
     }];
 
     UITextField *passwordTextField = [[UITextField alloc] init];
+    passwordTextField.secureTextEntry = YES;
     self.pwdTextField = passwordTextField;
     passwordTextField.placeholder = @"请输入新密码";
     passwordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;

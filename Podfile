@@ -14,4 +14,5 @@ target 'InterestingTour' do
     pod 'IQKeyboardManager'
     pod 'ReactiveObjC'
     pod 'Toast'
+    pod 'YYCategories'
 end

@@ -107,6 +107,7 @@
     }];
     
     UITextField *passwordTextField = [[UITextField alloc] init];
+    passwordTextField.secureTextEntry = YES;
     self.passwordTextField = passwordTextField;
     passwordTextField.placeholder = @"请输入新密码（至少8位）";
     passwordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -166,9 +167,7 @@
     }
 }
 
-/**
- 倒计时方法 在点击获取验证码按钮的方法里调用此方法即可实现, 需要在倒计时里修改按钮相关的请在此方法里yourButton修改
- */
+#pragma mark ------- 设置60s后重新获取验证码
 - (void)sentPhoneCodeTimeMethod {
     //倒计时时间 - 60S
     __block NSInteger timeOut = 59;

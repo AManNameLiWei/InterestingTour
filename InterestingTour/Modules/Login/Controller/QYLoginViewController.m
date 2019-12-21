@@ -11,6 +11,7 @@
 #import "QYRegisterViewController.h"
 #import "QYLoginView.h"
 #import <BmobSDK/Bmob.h>
+#import <Toast.h>
 
 @interface QYLoginViewController ()
 
@@ -39,11 +40,12 @@
     QYLoginView *loginView = [[QYLoginView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight+kStatusBarHeight, kScreenWidth, kScreenHeight-kStatusBarHeight-kNavigationBarHeight-kTabbarHeight)];
     [[loginView.loginBtnClickSubject ignore:nil] subscribeNext:^(NSDictionary * _Nullable x) {
         [BmobUser loginInbackgroundWithAccount:x[@"phoneNum"] andPassword:x[@"pwd"] block:^(BmobUser *user, NSError *error) {
-        if (user) {
-            KPostNotification(kNotificationNameLoginSuccess, nil);
-        } else {
-        NSLog(@"%@",error);
-        }
+            if (user) {
+                KPostNotification(kNotificationNameLoginSuccess, nil);
+            } else {
+                [self.view makeToast:@"账号或密码错误，请重新输入"];
+                DLog(@"%@",error.localizedDescription);
+            }
         }];
     }];
     [self.view addSubview:loginView];

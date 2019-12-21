@@ -23,4 +23,7 @@
 #define CBACKGROUND_LIGHT_GRAY_COLOR UIColorFromHex(0xFF5C667B)
 #define CBACKGROUND_ORANGE_COLOR UIColorFromHex(0xFFFFD630)
 
+#define CGradientStartColor [UIColor colorWithRed:0.0 green:150/255.0 blue:106/255.0 alpha:0.7]
+#define CGradientEndColor [UIColor colorWithRed:0.0 green:150/255.0 blue:106/255.0 alpha:1]
+
 #endif /* ColorMacros_h */

@@ -33,6 +33,7 @@
         [BmobSMS requestSMSCodeInBackgroundWithPhoneNumber:x andTemplate:@"趣游" resultBlock:^(int msgId, NSError *error) {
             if (error) {
                 [self.view makeToast:@"获取验证码失败，请稍后再试。"];
+                DLog(@"%@",error.localizedDescription);
             } else {
                 //获得smsID
                 //                NSLog(@"sms ID：%d",msgId);
@@ -51,12 +52,13 @@
                     if (isSuccessful){
                         KPostNotification(kNotificationNameLoginSuccess, nil);
                     } else {
-                        NSLog(@"%@",error);
-                        [self.view makeToast:@"服务器繁忙，请稍后再试。"];
+                        DLog(@"%@",error.localizedDescription);
+                        [self.view makeToast:error.localizedDescription];
                     }
                 }];
             } else {
-                [self.view makeToast:@"验证码错误，请重新输入验证码。"];
+                DLog(@"%@",error.localizedDescription);
+                [self.view makeToast:error.localizedDescription];
             }
         }];
     }];

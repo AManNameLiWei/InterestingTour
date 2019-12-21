@@ -10,6 +10,10 @@
 		54DE0C0678AAF35E60286D60 /* Pods_InterestingTour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A06CEE4C2A1E76AD045AC2F0 /* Pods_InterestingTour.framework */; };
 		D014E3B223AB5DE6003218CC /* QYRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D014E3B123AB5DE6003218CC /* QYRootViewController.m */; };
 		D014E3B623AB5F6D003218CC /* QYTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D014E3B523AB5F6D003218CC /* QYTabBarController.m */; };
+		D01AEB9023AD19DC0023627E /* QYMineNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D01AEB8F23AD19DC0023627E /* QYMineNavigationBarView.m */; };
+		D01AEB9423AD1BC20023627E /* UIView+GradientBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = D01AEB9323AD1BC20023627E /* UIView+GradientBackground.m */; };
+		D01AEB9823AD2A120023627E /* QYHomeNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D01AEB9723AD2A120023627E /* QYHomeNavigationBarView.m */; };
+		D01AEB9B23AD2CF70023627E /* QYHomeLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D01AEB9A23AD2CF70023627E /* QYHomeLocationModel.m */; };
 		D02A1FC423AB5125005B31C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A1FC323AB5125005B31C9 /* AppDelegate.m */; };
 		D02A1FCF23AB5125005B31C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D02A1FCE23AB5125005B31C9 /* Assets.xcassets */; };
 		D02A1FD223AB5125005B31C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D02A1FD023AB5125005B31C9 /* LaunchScreen.storyboard */; };
@@ -48,6 +52,14 @@
 		D014E3B423AB5F6D003218CC /* QYTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYTabBarController.h; sourceTree = "<group>"; };
 		D014E3B523AB5F6D003218CC /* QYTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYTabBarController.m; sourceTree = "<group>"; };
 		D01AEB8D23ACC1420023627E /* CommonMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonMacros.h; sourceTree = "<group>"; };
+		D01AEB8F23AD19DC0023627E /* QYMineNavigationBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMineNavigationBarView.m; sourceTree = "<group>"; };
+		D01AEB9223AD1BC20023627E /* UIView+GradientBackground.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+GradientBackground.h"; sourceTree = "<group>"; };
+		D01AEB9323AD1BC20023627E /* UIView+GradientBackground.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+GradientBackground.m"; sourceTree = "<group>"; };
+		D01AEB9523AD28770023627E /* QYMineNavigationBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYMineNavigationBarView.h; sourceTree = "<group>"; };
+		D01AEB9623AD2A120023627E /* QYHomeNavigationBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYHomeNavigationBarView.h; sourceTree = "<group>"; };
+		D01AEB9723AD2A120023627E /* QYHomeNavigationBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYHomeNavigationBarView.m; sourceTree = "<group>"; };
+		D01AEB9923AD2CF70023627E /* QYHomeLocationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYHomeLocationModel.h; sourceTree = "<group>"; };
+		D01AEB9A23AD2CF70023627E /* QYHomeLocationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYHomeLocationModel.m; sourceTree = "<group>"; };
 		D02A1FBF23AB5125005B31C9 /* 趣游.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "趣游.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02A1FC223AB5125005B31C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D02A1FC323AB5125005B31C9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -183,6 +195,15 @@
 			path = TabbarController;
 			sourceTree = "<group>";
 		};
+		D01AEB9123AD1B210023627E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				D01AEB9223AD1BC20023627E /* UIView+GradientBackground.h */,
+				D01AEB9323AD1BC20023627E /* UIView+GradientBackground.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		D02A1FB623AB5125005B31C9 = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +310,7 @@
 		D068AB5E23AC591B0034D427 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				D01AEB9123AD1B210023627E /* Category */,
 				D068AB5F23AC593F0034D427 /* Frameworks */,
 			);
 			path = Vendors;
@@ -396,6 +418,8 @@
 			children = (
 				D068AB4D23AB93530034D427 /* QYCycleScrollView.h */,
 				D068AB4E23AB93530034D427 /* QYCycleScrollView.m */,
+				D01AEB9623AD2A120023627E /* QYHomeNavigationBarView.h */,
+				D01AEB9723AD2A120023627E /* QYHomeNavigationBarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -403,6 +427,8 @@
 		D0FB447B23AB63B70012783D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D01AEB9923AD2CF70023627E /* QYHomeLocationModel.h */,
+				D01AEB9A23AD2CF70023627E /* QYHomeLocationModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -471,6 +497,8 @@
 		D0FB448923AB6A090012783D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D01AEB9523AD28770023627E /* QYMineNavigationBarView.h */,
+				D01AEB8F23AD19DC0023627E /* QYMineNavigationBarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -642,12 +670,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D01AEB9423AD1BC20023627E /* UIView+GradientBackground.m in Sources */,
 				D0FB449C23AB81940012783D /* LWNetworkHelper.m in Sources */,
 				D068AB6F23AC5E150034D427 /* QYLoginViewController.m in Sources */,
 				D014E3B623AB5F6D003218CC /* QYTabBarController.m in Sources */,
 				D0FB448323AB691A0012783D /* QYNavigationController.m in Sources */,
 				D0FB449D23AB81940012783D /* LWNetworkManager.m in Sources */,
 				D0FB449E23AB81940012783D /* TFBURLResponse.m in Sources */,
+				D01AEB9823AD2A120023627E /* QYHomeNavigationBarView.m in Sources */,
 				D0FB449023AB6A490012783D /* QYTravelViewController.m in Sources */,
 				D068AB7923AC5F110034D427 /* QYRegisterView.m in Sources */,
 				D0FB448D23AB6A300012783D /* QYMineViewController.m in Sources */,
@@ -655,11 +685,13 @@
 				D0E451E123AC9F3A005AD519 /* QYLoginView.m in Sources */,
 				D068AB4F23AB93530034D427 /* QYCycleScrollView.m in Sources */,
 				D02A1FC423AB5125005B31C9 /* AppDelegate.m in Sources */,
+				D01AEB9023AD19DC0023627E /* QYMineNavigationBarView.m in Sources */,
 				D068AB7623AC5EEE0034D427 /* QYRegisterViewController.m in Sources */,
 				D068AB5423AB99380034D427 /* QYBaseView.m in Sources */,
 				D02A1FD523AB5125005B31C9 /* main.m in Sources */,
 				D0FB447E23AB63CF0012783D /* QYHomeViewController.m in Sources */,
 				D0FB44A023AB81940012783D /* TFBURLRequest.m in Sources */,
+				D01AEB9B23AD2CF70023627E /* QYHomeLocationModel.m in Sources */,
 				D068AB5823AB99750034D427 /* QYBaseModel.m in Sources */,
 				D014E3B223AB5DE6003218CC /* QYRootViewController.m in Sources */,
 			);

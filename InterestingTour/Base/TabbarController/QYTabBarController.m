@@ -29,7 +29,7 @@
 - (void)loadViewControllers {
     QYHomeViewController *homeVc = [QYHomeViewController new];
     QYTravelViewController *travelVc = [QYTravelViewController new];
-    QYLoginViewController *mineVc = [QYLoginViewController new];
+    QYMineViewController *mineVc = [QYMineViewController new];
     
     QYNavigationController *firstNavigationVC = [[QYNavigationController alloc] initWithRootViewController:homeVc];
     QYNavigationController *secondNavigationVC = [[QYNavigationController alloc] initWithRootViewController:travelVc];
