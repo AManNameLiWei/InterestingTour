@@ -8,13 +8,17 @@
 
 #import "QYHomeNavigationBarView.h"
 
+@interface QYHomeNavigationBarView ()
+@property (nonatomic, strong) UILabel *cityNameLabel;
+@end
+
 @implementation QYHomeNavigationBarView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         [self setupUI];
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"home_nav_bg"]];
+//        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"home_nav_bg"]];
     }
     return self;
 }
@@ -31,8 +35,9 @@
     //        make.bottom.equalTo(settingBtn.superview.mas_bottom).offset(-15);
     //    }];
     UILabel *cityNameLabel = [[UILabel alloc] init];
+    self.cityNameLabel = cityNameLabel;
     cityNameLabel.font = [UIFont systemFontOfSize:18];
-    cityNameLabel.text = @"kkk";
+    cityNameLabel.text = @"正在定位";
     cityNameLabel.layer.borderWidth = 0;
     [self addSubview:cityNameLabel];
     [cityNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -40,6 +45,11 @@
         make.height.equalTo(@19);
         make.bottom.equalTo(self.mas_bottom).offset(-15);
     }];
+}
+
+#pragma mark ------- 设置当前城市
+- (void)setCurrentCity:(NSString *)city {
+    self.cityNameLabel.text = city;
 }
 
 

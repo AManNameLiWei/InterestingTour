@@ -20,15 +20,18 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [AFHTTPSessionManager manager];
+        //由于设置了允许http，要进行下面两个安全配置
+        manager.securityPolicy.allowInvalidCertificates = YES;
+        manager.securityPolicy.validatesDomainName = NO;
+        
         manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects: @"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain",@"image/jpg",nil];
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects: @"application/json",@"application/zip", @"text/json", @"text/javascript",@"text/html",@"text/plain",@"image/jpg",nil];
         manager.requestSerializer.timeoutInterval = 60.f;
     });
     return manager;
 }
 
 #pragma mark ------- 二次封装  由manager类调用 --------
-
 + (void)sendRequest:(TFBURLRequest *)request
             success:(void (^)(TFBURLResponse * _Nonnull))responseBlock
             failure:(nonnull void (^)(NSError * _Nonnull))failureBlock {

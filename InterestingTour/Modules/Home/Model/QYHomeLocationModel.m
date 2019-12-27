@@ -45,6 +45,8 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    
+    if (self.locationFailed) {
+        self.locationFailed(error);
+    }
 }
 @end

@@ -14,8 +14,8 @@
     self = [super init];
     if (self) {
         self.HTTPMethod = @"POST";
-        self.timeoutInterval = 5.f;
-        [self setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        self.timeoutInterval = 30.f;
+//        [self setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     }
     return self;
 }

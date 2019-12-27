@@ -523,14 +523,14 @@
 			isa = PBXGroup;
 			children = (
 				D0FB449323AB81940012783D /* TFBURLRequest.h */,
-				D0FB449423AB81940012783D /* LWNetworkHelper.m */,
+				D0FB449823AB81940012783D /* TFBURLRequest.m */,
+				D0FB449B23AB81940012783D /* LWNetworkManager.h */,
 				D0FB449523AB81940012783D /* LWNetworkManager.m */,
+				D0FB449923AB81940012783D /* LWNetworkHelper.h */,
+				D0FB449423AB81940012783D /* LWNetworkHelper.m */,
+				D0FB449A23AB81940012783D /* TFBURLResponse.h */,
 				D0FB449623AB81940012783D /* TFBURLResponse.m */,
 				D0FB449723AB81940012783D /* Readme */,
-				D0FB449823AB81940012783D /* TFBURLRequest.m */,
-				D0FB449923AB81940012783D /* LWNetworkHelper.h */,
-				D0FB449A23AB81940012783D /* TFBURLResponse.h */,
-				D0FB449B23AB81940012783D /* LWNetworkManager.h */,
 			);
 			path = LWNetworkKit;
 			sourceTree = "<group>";

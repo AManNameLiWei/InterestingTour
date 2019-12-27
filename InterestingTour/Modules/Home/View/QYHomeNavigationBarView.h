@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QYHomeNavigationBarView : QYBaseView
 
+- (void)setCurrentCity:(NSString *)city;
 @end
 
 NS_ASSUME_NONNULL_END
