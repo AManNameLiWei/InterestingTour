@@ -12,7 +12,7 @@
 #define kScreenWidth [[UIScreen mainScreen] bounds].size.width
 #define kScreenHeight [[UIScreen mainScreen] bounds].size.height
 //按比例缩放尺寸
-#define kRealValue(with) ((with)*(KScreenWidth/375.0f))
+#define kRealValue(with) ((with)*(kScreenWidth/375.0f))
 
 // iPhone X
 #define  LL_iPhoneX \
@@ -44,4 +44,9 @@ _Pragma("clang diagnostic pop") \
 } while (0)
 
 #define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+#define ViewRadius(View, Radius)\
+\
+[View.layer setCornerRadius:(Radius)];\
+[View.layer setMasksToBounds:YES]
 #endif /* UtilsMacros_h */

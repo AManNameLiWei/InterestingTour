@@ -15,4 +15,5 @@ target 'InterestingTour' do
     pod 'ReactiveObjC'
     pod 'Toast'
     pod 'YYCategories'
+    pod 'WSLWaterFlowLayout'
 end

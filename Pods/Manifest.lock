@@ -23,6 +23,7 @@ PODS:
     - SDWebImage/Core (= 5.2.2)
   - SDWebImage/Core (5.2.2)
   - Toast (4.0.0)
+  - WSLWaterFlowLayout (1.0.1)
   - YYCategories (1.0.4):
     - YYCategories/no-arc (= 1.0.4)
   - YYCategories/no-arc (1.0.4)
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - SDCycleScrollView
   - SDWebImage
   - Toast
+  - WSLWaterFlowLayout
   - YYCategories
   - YYModel
 
@@ -48,6 +50,7 @@ SPEC REPOS:
     - SDCycleScrollView
     - SDWebImage
     - Toast
+    - WSLWaterFlowLayout
     - YYCategories
     - YYModel
 
@@ -59,9 +62,10 @@ SPEC CHECKSUMS:
   SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
   SDWebImage: 5fcdb02cc35e05fc35791ec514b191d27189f872
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  WSLWaterFlowLayout: 37cfcb9c483b24144cd5c34c2cef4586ae6eef97
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: b7347fdaba39324883a467f25a59557380313e1d
+PODFILE CHECKSUM: 98081f282f73eb624154284f95336261cbe53c8e
 
 COCOAPODS: 1.8.1

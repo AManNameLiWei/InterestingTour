@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QYCycleScrollView : SDCycleScrollView
+@interface QYHomeCycleScrollView : SDCycleScrollView
 
 /// 滚动视图初始化方法
 /// @param frame 视图尺寸

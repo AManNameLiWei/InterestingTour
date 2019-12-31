@@ -7,10 +7,14 @@
 //
 
 #import "QYHomeViewController.h"
-#import "QYCycleScrollView.h"
+#import "QYHomeCycleScrollView.h"
 #import "QYHomeLocationModel.h"
 #import "QYHomeNavigationBarView.h"
 #import "LWNetworkManager.h"
+#import "QYHomeSearchView.h"
+#import <Toast.h>
+#import "QYHomeLandscapeCollectionView.h"
+#import "QYLandscapeViewController.h"
 
 @interface QYHomeViewController ()<CLLocationManagerDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -33,16 +37,14 @@
     //每次进入执行定位
     [self location];
     
-    [[LWNetworkManager sharedManager] sendRequest:^(TFBURLRequest * _Nonnull request) {
-        request.URL = [NSURL URLWithString:@"http://127.0.0.1/download/TextServer.json"];
-    } success:^(TFBURLResponse * _Nonnull response) {
-        NSLog(@"************%@",response.responseObject);
-        NSData *data = response.responseObject;
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers  error:nil];
-        DLog(@"-----------%@",response);
-    } failure:^(NSError * _Nonnull error) {
-        
-    }];
+//    [[LWNetworkManager sharedManager] sendRequest:^(TFBURLRequest * _Nonnull request) {
+//        request.URL = [NSURL URLWithString:@"http://127.0.0.1/download/layoutData.json"];
+//    } success:^(TFBURLResponse * _Nonnull response) {
+//        DLog(@"-----------%@",response.responseObject);
+//        NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:response.responseObject options:NSJSONReadingMutableContainers  error:nil];
+//    } failure:^(NSError * _Nonnull error) {
+//        [self.view makeToast:error.localizedDescription];
+//    }];
 }
 
 - (void)setupNavigationBar {
@@ -53,12 +55,13 @@
 }
 
 - (void)initViews {
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight + kNavigationBarHeight, kScreenWidth, kScreenHeight - kTabbarHeight - kStatusBarHeight - kNavigationBarHeight)];
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
     _scrollView.scrollEnabled = YES;
     _scrollView.backgroundColor = UIColor.whiteColor;
     [self.view addSubview:_scrollView];
     [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(kStatusBarHeight + kNavigationBarHeight);
+        make.left.equalTo(self.view).offset(0);
         make.width.equalTo(self.view);
         make.height.offset(kScreenHeight - kTabbarHeight - kStatusBarHeight - kNavigationBarHeight);
     }];
@@ -66,18 +69,45 @@
     adjustsScrollViewInsets_NO(_scrollView, self);
     
     _contentView = [[UIView alloc] init];
-    _contentView.backgroundColor = UIColor.whiteColor;
+    _contentView.userInteractionEnabled = YES;
     [_scrollView addSubview:_contentView];
     [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(_scrollView);
         make.width.equalTo(_scrollView);
-        make.height.greaterThanOrEqualTo(@0);
+        make.height.greaterThanOrEqualTo(@0.f);
     }];
 
     NSArray *t = @[@"http://img2.imgtn.bdimg.com/it/u=3081418124,510170928&fm=26&gp=0.jpg",
                    @"http://img4.imgtn.bdimg.com/it/u=229901377,2258429337&fm=26&gp=0.jpg", @"http://img0.imgtn.bdimg.com/it/u=2960559358,3401001486&fm=26&gp=0.jpg"];
-    QYCycleScrollView *qycycle = [[QYCycleScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200) dataSource:t];
-//    [_contentView addSubview:qycycle];
+    QYHomeCycleScrollView *qyCycleView = [[QYHomeCycleScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200) dataSource:t];
+    [_contentView addSubview:qyCycleView];
+    [qyCycleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.offset(0);
+        make.width.equalTo(_contentView);
+        make.height.equalTo(@200);
+    }];
+    
+    QYHomeSearchView *searchView = [[QYHomeSearchView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
+    [_contentView addSubview:searchView];
+    [searchView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(qyCycleView.mas_bottom).offset(0);
+        make.left.right.offset(0);
+        make.height.equalTo(@50);
+    }];
+    
+    QYHomeLandscapeCollectionView *collectionView = [[QYHomeLandscapeCollectionView alloc] init];
+    collectionView.cellClickBlock = ^(NSInteger row) {
+        QYLandscapeViewController *landscapeVc = [[QYLandscapeViewController alloc] init];
+        [self.navigationController pushViewController:landscapeVc animated:YES];
+    };
+    [_contentView addSubview:collectionView];
+    [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(searchView.mas_bottom).offset(0);
+        make.left.right.offset(0);
+        make.height.offset(600);
+        make.bottom.offset(0);
+    }];
+    
 }
 
 #pragma mark ------- 执行定位

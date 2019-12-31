@@ -26,6 +26,12 @@
 	<string>我们会通过您的位置信息为您提供附近的旅游景点。</string>
 	<key>NSLocationUsageDescription</key>
 	<string>我们会通过您的位置信息为您提供附近的旅游景点。</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>baidumap</string>
+		<string>qqmap</string>
+		<string>iosamap</string>
+	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
