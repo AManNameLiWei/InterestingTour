@@ -82,7 +82,7 @@
     }];
     
     __weak typeof(self) weakSelf = self;
-    QYDetailInformationTableView *informationTableView = [[QYDetailInformationTableView alloc] initWithFrame:CGRectZero data:self.informationTableViewDataArray];    
+    QYDetailInformationTableView *informationTableView = [[QYDetailInformationTableView alloc] initWithFrame:CGRectZero data:self.informationTableViewDataArray];
     [informationTableView setCellClickblock:^{
         CLLocationCoordinate2D currentLocation = weakSelf.currentLocation.coordinate;
         CLLocationCoordinate2D endLocation;
