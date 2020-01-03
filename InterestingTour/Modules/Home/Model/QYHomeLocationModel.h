@@ -7,7 +7,8 @@
 //
 
 #import "QYBaseModel.h"
-typedef void(^successBlock) (NSString * _Nullable city);
+@class CLLocation;
+typedef void(^successBlock) (NSString * _Nullable city, CLLocation *location);
 typedef void(^failedBlock) (NSError * _Nullable error);
 NS_ASSUME_NONNULL_BEGIN
 

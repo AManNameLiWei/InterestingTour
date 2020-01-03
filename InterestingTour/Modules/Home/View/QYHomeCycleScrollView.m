@@ -13,7 +13,7 @@
 - (instancetype)initWithFrame:(CGRect)frame dataSource:(NSArray *)imageUrlsArray{
     if (self = [super initWithFrame:frame]) {
         //设置滚动间隔时间
-        [self setAutoScrollTimeInterval:0];
+        [self setAutoScrollTimeInterval:2];
         self.imageURLStringsGroup = imageUrlsArray;
     }
     return self;

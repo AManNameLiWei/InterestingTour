@@ -8,21 +8,25 @@
 
 #import "QYHomeSearchView.h"
 
+@interface QYHomeSearchView ()
+@property (nonatomic, strong) UITextField *textField;
+@end
+
 @implementation QYHomeSearchView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         [self setupUI];
-//        self.backgroundColor = UIColor.grayColor;
     }
     return self;
 }
 
 - (void)setupUI {
     UITextField *textField = [[UITextField alloc] init];
+    _textField = textField;
     textField.borderStyle = UITextBorderStyleRoundedRect;
-    textField.placeholder = @"请输入您想去的地点，如：成都";
+    textField.placeholder = @"请输入您想去的地点，如：重庆";
     [self addSubview:textField];
     [textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.offset(5);
@@ -43,7 +47,13 @@
 }
 
 - (void)searchBtnClicked {
-    
+    if (self.searchAttractions) {
+        if (_textField.text.length <= 0) {
+            self.searchAttractions(@"重庆");
+        }else {
+            self.searchAttractions(_textField.text);
+        }
+    }
 }
 
 @end

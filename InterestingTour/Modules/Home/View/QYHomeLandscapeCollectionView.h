@@ -12,6 +12,8 @@ typedef void(^cellClickBlock)(NSInteger row);
 
 @interface QYHomeLandscapeCollectionView : UICollectionView
 @property (nonatomic, copy) cellClickBlock cellClickBlock;
+
+- (instancetype)initWithFrame:(CGRect)frame dataArray:(NSArray *)data;
 @end
 
 

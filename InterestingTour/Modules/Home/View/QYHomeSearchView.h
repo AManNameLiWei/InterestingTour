@@ -8,10 +8,9 @@
 
 #import "QYBaseView.h"
 
-NS_ASSUME_NONNULL_BEGIN
+typedef void(^searchBtnClickBlock)(NSString *cityName);
 
 @interface QYHomeSearchView : QYBaseView
-
+@property (nonatomic, copy) searchBtnClickBlock searchAttractions;
 @end
 
-NS_ASSUME_NONNULL_END

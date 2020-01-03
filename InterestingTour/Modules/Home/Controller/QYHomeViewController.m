@@ -15,12 +15,18 @@
 #import <Toast.h>
 #import "QYHomeLandscapeCollectionView.h"
 #import "QYLandscapeViewController.h"
+#import "QYHomeAttractionsModel.h"
+#import <MBProgressHUD.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface QYHomeViewController ()<CLLocationManagerDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) QYHomeLocationModel *locationModel;
 @property (nonatomic, strong) QYHomeNavigationBarView *navigationBarView;
+@property (nonatomic, strong) QYHomeAttractionsModel *attractionsModel;
+@property (nonatomic, strong) CLLocation *currentLocation;
+@property (nonatomic, strong) NSArray *attractionModelsArray;
 @end
 
 @implementation QYHomeViewController
@@ -88,6 +94,15 @@
     }];
     
     QYHomeSearchView *searchView = [[QYHomeSearchView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
+    //搜索景点
+    [searchView setSearchAttractions:^(NSString *cityName) {
+        self.attractionsModel = [QYHomeAttractionsModel new];
+        [self.attractionsModel searchAttarctions:cityName success:^(QYHomeAttractionsModel *model) {
+            
+        } failed:^(NSString *errorStr) {
+            [self.view makeToast:errorStr];
+        }];
+    }];
     [_contentView addSubview:searchView];
     [searchView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(qyCycleView.mas_bottom).offset(0);
@@ -95,19 +110,40 @@
         make.height.equalTo(@50);
     }];
     
-    QYHomeLandscapeCollectionView *collectionView = [[QYHomeLandscapeCollectionView alloc] init];
-    collectionView.cellClickBlock = ^(NSInteger row) {
-        QYLandscapeViewController *landscapeVc = [[QYLandscapeViewController alloc] init];
-        [self.navigationController pushViewController:landscapeVc animated:YES];
-    };
-    [_contentView addSubview:collectionView];
-    [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(searchView.mas_bottom).offset(0);
-        make.left.right.offset(0);
-        make.height.offset(600);
-        make.bottom.offset(0);
+    //景点瀑布流视图  默认显示重庆
+    __weak typeof(self) weakSelf = self;
+    QYHomeAttractionsModel *attractionModel = [QYHomeAttractionsModel new];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:0];
+    [attractionModel searchAttarctions:@"合肥" success:^(QYHomeAttractionsModel *model) {
+        weakSelf.attractionModelsArray = [NSArray arrayWithArray:model.showapi_res_body.pagebean.contentlist];
+        [model.showapi_res_body.pagebean.contentlist enumerateObjectsUsingBlock:^(AttractionModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (![obj.name hasSuffix:@"站"] && ![obj.name hasSuffix:@"学"]) {
+                //只取第一个用作展示
+                PicModel *picModel = [PicModel new];;
+                picModel = obj.picList.firstObject;
+                if (picModel && obj.name) {
+                    NSDictionary *dic = @{@"imgUrl": picModel.picUrl, @"description": obj.name};
+                    [dataArray addObject:dic];
+                }
+            }
+        }];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        QYHomeLandscapeCollectionView *collectionView = [[QYHomeLandscapeCollectionView alloc] initWithFrame:CGRectZero dataArray:dataArray];
+        collectionView.cellClickBlock = ^(NSInteger row) {
+            QYLandscapeViewController *landscapeVc = [[QYLandscapeViewController alloc] init:weakSelf.attractionModelsArray[row] currentLocation:weakSelf.currentLocation];
+            [self.navigationController pushViewController:landscapeVc animated:YES];
+        };
+        [self->_contentView addSubview:collectionView];
+        [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(searchView.mas_bottom).offset(0);
+            make.left.right.offset(0);
+            make.height.offset(2000);
+            make.bottom.offset(0);
+        }];
+    } failed:^(NSString *errorStr) {
+        [self.view makeToast:@"网络不稳定，请稍后再试"];
     }];
-    
 }
 
 #pragma mark ------- 执行定位
@@ -116,9 +152,10 @@
     [_locationModel startLocation];
     __weak typeof(self) weakSelf = self;
     //定位成功
-    self.locationModel.locationSuccess = ^(NSString * _Nullable city) {
-        if (city) {
+    self.locationModel.locationSuccess = ^(NSString * _Nullable city, CLLocation *location) {
+        if (city && location) {
             [weakSelf.navigationBarView setCurrentCity:city];
+            weakSelf.currentLocation = location;
         }
     };
     //定位失败
@@ -135,7 +172,7 @@
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
         [alertVc addAction:openSettingAction];
         [alertVc addAction:cancelAction];
-//        [weakSelf presentViewController:alertVc animated:YES completion:nil];
+        [weakSelf presentViewController:alertVc animated:YES completion:nil];
     };
 }
 

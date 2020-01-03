@@ -16,4 +16,7 @@ target 'InterestingTour' do
     pod 'Toast'
     pod 'YYCategories'
     pod 'WSLWaterFlowLayout'
+    pod "ShowAPI_SDK"
+    pod 'MBProgressHUD'
+    pod 'UITableView+FDTemplateLayoutCell'
 end

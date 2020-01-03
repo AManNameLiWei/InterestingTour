@@ -7,11 +7,12 @@
 //
 
 #import "QYRootViewController.h"
-
+@class AttractionModel;
+@class CLLocation;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QYLandscapeViewController : QYRootViewController
-
+- (instancetype)init:(AttractionModel *)model currentLocation:(CLLocation *)location;
 @end
 
 NS_ASSUME_NONNULL_END

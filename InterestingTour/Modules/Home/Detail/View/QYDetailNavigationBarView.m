@@ -22,7 +22,7 @@
 - (void)setupUI {
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn addTarget:self action:@selector(backBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    backBtn.backgroundColor = [UIColor.whiteColor colorWithAlphaComponent:0.6];
+    backBtn.backgroundColor = [UIColor.blackColor colorWithAlphaComponent:0.5];
     [backBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     ViewRadius(backBtn, 14);
     [self addSubview:backBtn];

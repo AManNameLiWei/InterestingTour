@@ -28,7 +28,6 @@
 
 - (void)setupUI {
     _landscapeImageView = [[UIImageView alloc] init];
-    _landscapeImageView.backgroundColor = UIColor.redColor;
     ViewRadius(_landscapeImageView, 5);
     [self.contentView addSubview:_landscapeImageView];
     [_landscapeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -37,7 +36,7 @@
     }];
     
     _titleLabel = [[UILabel alloc] init];
-    _titleLabel.backgroundColor = UIColor.cyanColor;
+//    _titleLabel.backgroundColor = UIColor.cyanColor;
     _titleLabel.numberOfLines = 0;
     [self.contentView addSubview:_titleLabel];
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -48,5 +47,7 @@
 
 - (void)setData:(NSDictionary *)dataDic {
     self.dataDic = dataDic;
+    [_landscapeImageView sd_setImageWithURL:self.dataDic[@"imgUrl"]];
+    _titleLabel.text = self.dataDic[@"description"];
 }
 @end

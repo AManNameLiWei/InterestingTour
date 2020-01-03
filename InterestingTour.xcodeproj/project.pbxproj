@@ -20,8 +20,6 @@
 		D02A1FD223AB5125005B31C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D02A1FD023AB5125005B31C9 /* LaunchScreen.storyboard */; };
 		D02A1FD523AB5125005B31C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A1FD423AB5125005B31C9 /* main.m */; };
 		D03A9A9623B9D617008B41B5 /* QYHomeSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = D03A9A9523B9D617008B41B5 /* QYHomeSearchView.m */; };
-		D03A9A9C23B9E3BF008B41B5 /* QYHomeLandscapeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D03A9A9B23B9E3BF008B41B5 /* QYHomeLandscapeTableView.m */; };
-		D03A9A9F23B9E3D5008B41B5 /* QYHomeLandscapeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D03A9A9E23B9E3D5008B41B5 /* QYHomeLandscapeTableViewCell.m */; };
 		D03A9AA223B9EA47008B41B5 /* QYHomeLandscapeCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D03A9AA123B9EA47008B41B5 /* QYHomeLandscapeCollectionView.m */; };
 		D03A9AA523B9FE8F008B41B5 /* QYHomeLandscapeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D03A9AA423B9FE8F008B41B5 /* QYHomeLandscapeCollectionViewCell.m */; };
 		D068AB4C23AB886E0034D427 /* UIView+FrameExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D068AB4B23AB886E0034D427 /* UIView+FrameExtension.m */; };
@@ -37,10 +35,10 @@
 		D068AB7923AC5F110034D427 /* QYRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D068AB7823AC5F110034D427 /* QYRegisterView.m */; };
 		D068AB7B23AC6A6C0034D427 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D068AB7A23AC6A6C0034D427 /* Localizable.strings */; };
 		D068AB7F23AC6F4F0034D427 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D068AB7E23AC6F4F0034D427 /* Photos.framework */; };
+		D06C3F5C23BD929D006315B1 /* QYHomeAttractionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D06C3F5B23BD929D006315B1 /* QYHomeAttractionsModel.m */; };
 		D07EEFE923BAEC87002C64F2 /* QYDetailCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07EEFE823BAEC87002C64F2 /* QYDetailCycleScrollView.m */; };
 		D07EEFEC23BAEE7D002C64F2 /* QYLandscapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07EEFEB23BAEE7D002C64F2 /* QYLandscapeViewController.m */; };
 		D07EEFEF23BAF85B002C64F2 /* QYDetailNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07EEFEE23BAF85B002C64F2 /* QYDetailNavigationBarView.m */; };
-		D07EEFF223BB2900002C64F2 /* QYDetailInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07EEFF123BB2900002C64F2 /* QYDetailInformationView.m */; };
 		D07EEFF523BB2E33002C64F2 /* QYDetailInformationTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07EEFF423BB2E33002C64F2 /* QYDetailInformationTableView.m */; };
 		D07EEFF823BB2E4A002C64F2 /* QYDetailInformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D07EEFF723BB2E4A002C64F2 /* QYDetailInformationTableViewCell.m */; };
 		D07EEFFC23BB469B002C64F2 /* LWJumpToMap.m in Sources */ = {isa = PBXBuildFile; fileRef = D07EEFFB23BB469B002C64F2 /* LWJumpToMap.m */; };
@@ -84,10 +82,6 @@
 		D02A1FD423AB5125005B31C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D03A9A9423B9D617008B41B5 /* QYHomeSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYHomeSearchView.h; sourceTree = "<group>"; };
 		D03A9A9523B9D617008B41B5 /* QYHomeSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYHomeSearchView.m; sourceTree = "<group>"; };
-		D03A9A9A23B9E3BF008B41B5 /* QYHomeLandscapeTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYHomeLandscapeTableView.h; sourceTree = "<group>"; };
-		D03A9A9B23B9E3BF008B41B5 /* QYHomeLandscapeTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYHomeLandscapeTableView.m; sourceTree = "<group>"; };
-		D03A9A9D23B9E3D5008B41B5 /* QYHomeLandscapeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYHomeLandscapeTableViewCell.h; sourceTree = "<group>"; };
-		D03A9A9E23B9E3D5008B41B5 /* QYHomeLandscapeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYHomeLandscapeTableViewCell.m; sourceTree = "<group>"; };
 		D03A9AA023B9EA47008B41B5 /* QYHomeLandscapeCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYHomeLandscapeCollectionView.h; sourceTree = "<group>"; };
 		D03A9AA123B9EA47008B41B5 /* QYHomeLandscapeCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYHomeLandscapeCollectionView.m; sourceTree = "<group>"; };
 		D03A9AA323B9FE8F008B41B5 /* QYHomeLandscapeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYHomeLandscapeCollectionViewCell.h; sourceTree = "<group>"; };
@@ -115,14 +109,14 @@
 		D068AB7A23AC6A6C0034D427 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		D068AB7C23AC6EF80034D427 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		D068AB7E23AC6F4F0034D427 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		D06C3F5A23BD929D006315B1 /* QYHomeAttractionsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYHomeAttractionsModel.h; sourceTree = "<group>"; };
+		D06C3F5B23BD929D006315B1 /* QYHomeAttractionsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYHomeAttractionsModel.m; sourceTree = "<group>"; };
 		D07EEFE723BAEC87002C64F2 /* QYDetailCycleScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYDetailCycleScrollView.h; sourceTree = "<group>"; };
 		D07EEFE823BAEC87002C64F2 /* QYDetailCycleScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYDetailCycleScrollView.m; sourceTree = "<group>"; };
 		D07EEFEA23BAEE7D002C64F2 /* QYLandscapeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYLandscapeViewController.h; sourceTree = "<group>"; };
 		D07EEFEB23BAEE7D002C64F2 /* QYLandscapeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYLandscapeViewController.m; sourceTree = "<group>"; };
 		D07EEFED23BAF85B002C64F2 /* QYDetailNavigationBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYDetailNavigationBarView.h; sourceTree = "<group>"; };
 		D07EEFEE23BAF85B002C64F2 /* QYDetailNavigationBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYDetailNavigationBarView.m; sourceTree = "<group>"; };
-		D07EEFF023BB2900002C64F2 /* QYDetailInformationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYDetailInformationView.h; sourceTree = "<group>"; };
-		D07EEFF123BB2900002C64F2 /* QYDetailInformationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYDetailInformationView.m; sourceTree = "<group>"; };
 		D07EEFF323BB2E33002C64F2 /* QYDetailInformationTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYDetailInformationTableView.h; sourceTree = "<group>"; };
 		D07EEFF423BB2E33002C64F2 /* QYDetailInformationTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYDetailInformationTableView.m; sourceTree = "<group>"; };
 		D07EEFF623BB2E4A002C64F2 /* QYDetailInformationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYDetailInformationTableViewCell.h; sourceTree = "<group>"; };
@@ -458,8 +452,6 @@
 				D07EEFE823BAEC87002C64F2 /* QYDetailCycleScrollView.m */,
 				D07EEFED23BAF85B002C64F2 /* QYDetailNavigationBarView.h */,
 				D07EEFEE23BAF85B002C64F2 /* QYDetailNavigationBarView.m */,
-				D07EEFF023BB2900002C64F2 /* QYDetailInformationView.h */,
-				D07EEFF123BB2900002C64F2 /* QYDetailInformationView.m */,
 				D07EEFF323BB2E33002C64F2 /* QYDetailInformationTableView.h */,
 				D07EEFF423BB2E33002C64F2 /* QYDetailInformationTableView.m */,
 				D07EEFF623BB2E4A002C64F2 /* QYDetailInformationTableViewCell.h */,
@@ -506,10 +498,6 @@
 				D01AEB9723AD2A120023627E /* QYHomeNavigationBarView.m */,
 				D03A9A9423B9D617008B41B5 /* QYHomeSearchView.h */,
 				D03A9A9523B9D617008B41B5 /* QYHomeSearchView.m */,
-				D03A9A9A23B9E3BF008B41B5 /* QYHomeLandscapeTableView.h */,
-				D03A9A9B23B9E3BF008B41B5 /* QYHomeLandscapeTableView.m */,
-				D03A9A9D23B9E3D5008B41B5 /* QYHomeLandscapeTableViewCell.h */,
-				D03A9A9E23B9E3D5008B41B5 /* QYHomeLandscapeTableViewCell.m */,
 				D03A9AA023B9EA47008B41B5 /* QYHomeLandscapeCollectionView.h */,
 				D03A9AA123B9EA47008B41B5 /* QYHomeLandscapeCollectionView.m */,
 				D03A9AA323B9FE8F008B41B5 /* QYHomeLandscapeCollectionViewCell.h */,
@@ -525,6 +513,8 @@
 				D01AEB9A23AD2CF70023627E /* QYHomeLocationModel.m */,
 				D027D16523B609070017ECF8 /* QYHomeLayoutDataModel.h */,
 				D027D16623B609070017ECF8 /* QYHomeLayoutDataModel.m */,
+				D06C3F5A23BD929D006315B1 /* QYHomeAttractionsModel.h */,
+				D06C3F5B23BD929D006315B1 /* QYHomeAttractionsModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -788,15 +778,13 @@
 				D0E451E123AC9F3A005AD519 /* QYLoginView.m in Sources */,
 				D068AB4F23AB93530034D427 /* QYHomeCycleScrollView.m in Sources */,
 				D07EEFE923BAEC87002C64F2 /* QYDetailCycleScrollView.m in Sources */,
-				D07EEFF223BB2900002C64F2 /* QYDetailInformationView.m in Sources */,
 				D02A1FC423AB5125005B31C9 /* AppDelegate.m in Sources */,
 				D01AEB9023AD19DC0023627E /* QYMineNavigationBarView.m in Sources */,
 				D07EEFF823BB2E4A002C64F2 /* QYDetailInformationTableViewCell.m in Sources */,
 				D068AB7623AC5EEE0034D427 /* QYRegisterViewController.m in Sources */,
-				D03A9A9C23B9E3BF008B41B5 /* QYHomeLandscapeTableView.m in Sources */,
 				D068AB5423AB99380034D427 /* QYBaseView.m in Sources */,
 				D02A1FD523AB5125005B31C9 /* main.m in Sources */,
-				D03A9A9F23B9E3D5008B41B5 /* QYHomeLandscapeTableViewCell.m in Sources */,
+				D06C3F5C23BD929D006315B1 /* QYHomeAttractionsModel.m in Sources */,
 				D0FB447E23AB63CF0012783D /* QYHomeViewController.m in Sources */,
 				D0FB44A023AB81940012783D /* TFBURLRequest.m in Sources */,
 				D07EEFF523BB2E33002C64F2 /* QYDetailInformationTableView.m in Sources */,

@@ -26,4 +26,6 @@
 #define CGradientStartColor [UIColor colorWithRed:0.0 green:150/255.0 blue:106/255.0 alpha:0.7]
 #define CGradientEndColor [UIColor colorWithRed:0.0 green:150/255.0 blue:106/255.0 alpha:1]
 
+// 按钮颜色
+#define C_BUTTON_COLOR [UIColor colorWithRed:0.0 green:182/255.0 blue:106/255.0 alpha:0.7]
 #endif /* ColorMacros_h */

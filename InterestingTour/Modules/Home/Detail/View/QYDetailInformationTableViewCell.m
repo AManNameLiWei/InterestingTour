@@ -15,9 +15,13 @@
 
 @implementation QYDetailInformationTableViewCell
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    if (highlighted) {
+        self.contentView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    }
+    else {
+        self.contentView.backgroundColor = [UIColor whiteColor];
+    }
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -30,20 +34,27 @@
 
 - (void)setupUI {
     self.titleLabel = [[UILabel alloc] init];
+    _titleLabel.textColor = UIColor.grayColor;
+    _titleLabel.numberOfLines = 0;
+    _titleLabel.font = [UIFont fontWithName:@"PingFangSC-Medium" size:13];
     [self.contentView addSubview:_titleLabel];
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(5);
-        make.centerY.equalTo(self.mas_centerY);
-        make.height.equalTo(@30);
+        make.top.equalTo(self.contentView.mas_top).offset(5);
+        make.bottom.equalTo(self.contentView.mas_bottom).offset(-5);
     }];
-    
+
     _contentLabel = [[UILabel alloc] init];
+    _contentLabel.textAlignment = NSTextAlignmentLeft;
+    _contentLabel.numberOfLines = 0;
+    _contentLabel.font = [UIFont fontWithName:@"PingFangSC-Medium" size:13];
+    [_contentLabel sizeToFit];
     [self.contentView addSubview:_contentLabel];
     [_contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_titleLabel.mas_right).offset(5);
-        make.right.offset(-20);
-        make.centerY.equalTo(self.mas_centerY);
-        make.height.equalTo(@30);
+        make.left.equalTo(self.titleLabel.mas_right).offset(5);
+        make.right.offset(-30);
+        make.top.equalTo(self.contentView.mas_top).offset(5);
+        make.bottom.equalTo(self.contentView.mas_bottom).offset(-5);
     }];
     
     _arrowImgView = [[UIImageView alloc] init];
@@ -51,8 +62,8 @@
     _arrowImgView.hidden = YES;
     [self.contentView addSubview:_arrowImgView];
     [_arrowImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.offset(-4);
-        make.width.height.equalTo(@16);
+        make.right.offset(-5);
+        make.width.height.equalTo(@20);
         make.centerY.equalTo(self.mas_centerY);
     }];
     

@@ -8,6 +8,7 @@
 
 #import "QYDetailInformationTableView.h"
 #import "QYDetailInformationTableViewCell.h"
+#import <UITableView+FDTemplateLayoutCell.h>
 
 @interface QYDetailInformationTableView ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) NSArray *dataArray;
@@ -23,6 +24,9 @@
         self.dataSource = self;
         [self registerClass:[QYDetailInformationTableViewCell class] forCellReuseIdentifier:@"QYDetailInformationTableViewCellID"];
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.scrollEnabled = NO;
+        self.showsVerticalScrollIndicator = NO;
+        self.showsHorizontalScrollIndicator = NO;
     }
     return self;
 }
@@ -33,6 +37,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [tableView fd_heightForCellWithIdentifier:@"QYDetailInformationTableViewCellID" cacheByIndexPath:indexPath configuration:^(QYDetailInformationTableViewCell *cell) {
+        // 配置 cell 的数据源，和 "cellForRow" 干的事一致，比如：
+        [cell setData:self.dataArray[indexPath.row]];
+    }];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -47,15 +58,12 @@
     } else if (indexPath.row == 3) {
         cell.titleLabel.text = @"详情：";
     }
-//    cell setData:<#(nonnull NSString *)#>
+    [cell setData:self.dataArray[indexPath.row]];
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 1) {
         if (self.cellClickblock) {
             self.cellClickblock();

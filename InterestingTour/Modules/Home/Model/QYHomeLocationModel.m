@@ -38,7 +38,7 @@
             NSDictionary *address = [placemark addressDictionary];
             NSString *city = address[@"City"];
             if (self.locationSuccess) {
-                self.locationSuccess(city);
+                self.locationSuccess(city, currentLocation);
             }
         }
     }];

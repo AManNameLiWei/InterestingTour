@@ -11,17 +11,18 @@
 #import <WSLWaterFlowLayout.h>
 
 @interface QYHomeLandscapeCollectionView ()<WSLWaterFlowLayoutDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
-
+@property (nonatomic, strong) NSArray *dataArray;
 @end
 
 @implementation QYHomeLandscapeCollectionView
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame dataArray:(NSArray *)data{
     WSLWaterFlowLayout * flowLayout = [[WSLWaterFlowLayout alloc] init];
        flowLayout.delegate = self;
        flowLayout.flowLayoutStyle = WSLWaterFlowVerticalEqualWidth;
     self = [super initWithFrame:frame collectionViewLayout: flowLayout];
     if (self) {
+        self.dataArray = data;
         self.delegate = self;
         self.dataSource = self;
         self.backgroundColor = UIColor.whiteColor;
@@ -49,12 +50,12 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 6;
+    return self.dataArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     QYHomeLandscapeCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"QYHomeLandscapeCollectionViewCellID" forIndexPath:indexPath];
-//    cell setData:<#(nonnull NSDictionary *)#>
+    [cell setData: self.dataArray[indexPath.row]];
     return cell;
 }
 
