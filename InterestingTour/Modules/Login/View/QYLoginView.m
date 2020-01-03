@@ -27,10 +27,9 @@
 }
 
 - (void)setupUI {
-#warning 未设置icon图片
     UIImageView *iconIV = [[UIImageView alloc] init];
-    iconIV.image = [UIImage imageNamed:@""];
-    iconIV.backgroundColor = UIColor.redColor;
+    ViewRadius(iconIV, 8);
+    iconIV.image = [UIImage imageNamed:@"iconImage"];
     [self addSubview:iconIV];
     [iconIV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@30);
@@ -94,7 +93,7 @@
         if (phoneNum.length > 10 && password.length > 7) {
             [confirmBtn setBackgroundColor:[UIColor colorWithRed:0.0 green:182/255.0 blue:106/255.0 alpha:1]];
         }else{
-            [confirmBtn setBackgroundColor:[UIColor colorWithRed:0.0 green:182/255.0 blue:106/255.0 alpha:0.7]];
+            [confirmBtn setBackgroundColor:[UIColor colorWithRed:0.0 green:182/255.0 blue:106/255.0 alpha:0.6]];
         }
         return @(phoneNum.length > 10 && password.length > 7);
     }];

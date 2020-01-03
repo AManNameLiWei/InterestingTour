@@ -76,6 +76,7 @@
     
     _contentView = [[UIView alloc] init];
     _contentView.userInteractionEnabled = YES;
+    _contentView.backgroundColor = C_BUTTON_COLOR;
     [_scrollView addSubview:_contentView];
     [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(_scrollView);
@@ -86,14 +87,17 @@
     NSArray *t = @[@"http://img2.imgtn.bdimg.com/it/u=3081418124,510170928&fm=26&gp=0.jpg",
                    @"http://img4.imgtn.bdimg.com/it/u=229901377,2258429337&fm=26&gp=0.jpg", @"http://img0.imgtn.bdimg.com/it/u=2960559358,3401001486&fm=26&gp=0.jpg"];
     QYHomeCycleScrollView *qyCycleView = [[QYHomeCycleScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200) dataSource:t];
+    ViewRadius(qyCycleView, 13);
     [_contentView addSubview:qyCycleView];
     [qyCycleView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.offset(0);
-        make.width.equalTo(_contentView);
+        make.top.offset(0);
+        make.left.offset(10);
+        make.right.offset(-10);
         make.height.equalTo(@200);
     }];
     
     QYHomeSearchView *searchView = [[QYHomeSearchView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
+    ViewRadius(searchView, 5);
     //搜索景点
     [searchView setSearchAttractions:^(NSString *cityName) {
         self.attractionsModel = [QYHomeAttractionsModel new];
@@ -105,7 +109,7 @@
     }];
     [_contentView addSubview:searchView];
     [searchView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(qyCycleView.mas_bottom).offset(0);
+        make.top.equalTo(qyCycleView.mas_bottom).offset(10);
         make.left.right.offset(0);
         make.height.equalTo(@50);
     }];
@@ -130,13 +134,14 @@
         }];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         QYHomeLandscapeCollectionView *collectionView = [[QYHomeLandscapeCollectionView alloc] initWithFrame:CGRectZero dataArray:dataArray];
+        ViewRadius(collectionView, 13);
         collectionView.cellClickBlock = ^(NSInteger row) {
             QYLandscapeViewController *landscapeVc = [[QYLandscapeViewController alloc] init:weakSelf.attractionModelsArray[row] currentLocation:weakSelf.currentLocation];
             [self.navigationController pushViewController:landscapeVc animated:YES];
         };
         [self->_contentView addSubview:collectionView];
         [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(searchView.mas_bottom).offset(0);
+            make.top.equalTo(searchView.mas_bottom).offset(10);
             make.left.right.offset(0);
             make.height.offset(2000);
             make.bottom.offset(0);

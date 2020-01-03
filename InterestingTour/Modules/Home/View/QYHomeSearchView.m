@@ -18,6 +18,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupUI];
+        self.backgroundColor = UIColor.whiteColor;
     }
     return self;
 }
@@ -40,9 +41,9 @@
     [searchBtn setBackgroundImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
     [self addSubview:searchBtn];
     [searchBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.offset(5);
-        make.bottom.right.offset(-5);
-        make.left.equalTo(textField.mas_right).offset(5);
+        make.top.offset(10);
+        make.bottom.right.offset(-10);
+        make.left.equalTo(textField.mas_right).offset(10);
     }];
 }
 

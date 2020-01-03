@@ -18,7 +18,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupUI];
-//        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"home_nav_bg"]];
+        self.backgroundColor = C_BUTTON_COLOR;
     }
     return self;
 }
@@ -38,10 +38,11 @@
     self.cityNameLabel = cityNameLabel;
     cityNameLabel.font = [UIFont systemFontOfSize:18];
     cityNameLabel.text = @"正在定位";
+    cityNameLabel.textColor = UIColor.whiteColor;
     cityNameLabel.layer.borderWidth = 0;
     [self addSubview:cityNameLabel];
     [cityNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(20);
+        make.left.equalTo(self).offset(10);
         make.height.equalTo(@19);
         make.bottom.equalTo(self.mas_bottom).offset(-15);
     }];
