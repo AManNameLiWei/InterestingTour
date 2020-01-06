@@ -42,7 +42,8 @@
     [self addSubview:searchBtn];
     [searchBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.offset(10);
-        make.bottom.right.offset(-10);
+        make.bottom.offset(-10);
+        make.right.offset(-10);
         make.left.equalTo(textField.mas_right).offset(10);
     }];
 }

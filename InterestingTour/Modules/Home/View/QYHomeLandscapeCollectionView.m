@@ -31,6 +31,8 @@
     return self;
 }
 
+#pragma mark ------- delegate
+
 - (CGSize)waterFlowLayout:(WSLWaterFlowLayout *)waterFlowLayout sizeForFooterViewInSection:(NSInteger)section {
     return CGSizeZero;
 }
@@ -65,6 +67,9 @@
     }
 }
 
-
+- (void)viewReloadData:(NSArray *)dataArray {
+    self.dataArray = dataArray;
+    [self reloadData];
+}
 
 @end

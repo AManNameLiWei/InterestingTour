@@ -14,6 +14,7 @@ typedef void(^cellClickBlock)(NSInteger row);
 @property (nonatomic, copy) cellClickBlock cellClickBlock;
 
 - (instancetype)initWithFrame:(CGRect)frame dataArray:(NSArray *)data;
+- (void)viewReloadData:(NSArray *)dataArray;
 @end
 
 

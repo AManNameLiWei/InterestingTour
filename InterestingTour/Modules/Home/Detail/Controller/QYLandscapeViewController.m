@@ -71,9 +71,8 @@
         make.height.equalTo(@(kNavigationBarHeight + kStatusBarHeight));
     }];
     
-    NSArray *t = @[@"http://img2.imgtn.bdimg.com/it/u=3081418124,510170928&fm=26&gp=0.jpg",
-                   @"http://img4.imgtn.bdimg.com/it/u=229901377,2258429337&fm=26&gp=0.jpg", @"http://img0.imgtn.bdimg.com/it/u=2960559358,3401001486&fm=26&gp=0.jpg"];
-    QYDetailCycleScrollView *qyCycleView = [[QYDetailCycleScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200) dataSource:t];
+    
+    QYDetailCycleScrollView *qyCycleView = [[QYDetailCycleScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200) dataSource:[self getQyCycleViewDataArray]];
     [_contentView addSubview:qyCycleView];
     [qyCycleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.offset(0);
@@ -120,6 +119,21 @@
     }];
 }
 
-
+- (NSArray *)getQyCycleViewDataArray {
+    __block NSMutableArray *qyCycleViewDataArray = [NSMutableArray arrayWithCapacity:0];
+    if (self.attractionModel.picList.count <= 5) {
+        [self.attractionModel.picList enumerateObjectsUsingBlock:^(PicModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [qyCycleViewDataArray addObject:obj.picUrl];
+        }];
+    } else {
+        [self.attractionModel.picList enumerateObjectsUsingBlock:^(PicModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [qyCycleViewDataArray addObject:obj.picUrl];
+            if (idx == 4) {
+                *stop = YES;
+            }
+        }];
+    }
+    return qyCycleViewDataArray;
+}
 
 @end
