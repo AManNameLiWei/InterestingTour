@@ -25,6 +25,7 @@
 
 - (void)setupUI {
     UITextField *textField = [[UITextField alloc] init];
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     _textField = textField;
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.placeholder = @"请输入您想去的地点，如：重庆";
@@ -32,7 +33,7 @@
     [textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.offset(5);
         make.bottom.offset(-5);
-        make.left.equalTo(@10);
+        make.left.equalTo(@5);
         make.right.offset(-kRealValue(50));
     }];
     
@@ -49,6 +50,7 @@
 }
 
 - (void)searchBtnClicked {
+    [_textField endEditing:YES];
     if (self.searchAttractions) {
         if (_textField.text.length <= 0) {
             self.searchAttractions(@"重庆");

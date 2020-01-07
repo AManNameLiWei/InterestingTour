@@ -19,4 +19,5 @@ target 'InterestingTour' do
     pod "ShowAPI_SDK"
     pod 'MBProgressHUD'
     pod 'UITableView+FDTemplateLayoutCell'
+    pod 'Realm'
 end

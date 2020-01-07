@@ -116,8 +116,7 @@
             [model.showapi_res_body.pagebean.contentlist enumerateObjectsUsingBlock:^(AttractionModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 if (![obj.name hasSuffix:@"站"] && ![obj.name hasSuffix:@"学"] && ![obj.name hasSuffix:@"机场"]) {
                     //只取第一个用作展示
-                    PicModel *picModel = [PicModel new];;
-                    picModel = obj.picList.firstObject;
+                    PicModel *picModel = obj.picList.firstObject;
                     if (picModel) {
                         [weakSelf.attractionModelsArray addObject:obj];
                         NSDictionary *dic = @{@"imgUrl": picModel.picUrl, @"description": obj.name};
@@ -146,8 +145,7 @@
         [model.showapi_res_body.pagebean.contentlist enumerateObjectsUsingBlock:^(AttractionModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if (![obj.name hasSuffix:@"站"] && ![obj.name hasSuffix:@"学"] && ![obj.name hasSuffix:@"机场"]) {
                 //只取第一个用作展示
-                PicModel *picModel = [PicModel new];;
-                picModel = obj.picList.firstObject;
+                PicModel *picModel = obj.picList.firstObject;
                 if (picModel) {
                     [weakSelf.attractionModelsArray addObject:obj];
                     NSDictionary *dic = @{@"imgUrl": picModel.picUrl, @"description": obj.name};

@@ -34,15 +34,24 @@
     QYNavigationController *firstNavigationVC = [[QYNavigationController alloc] initWithRootViewController:homeVc];
     QYNavigationController *secondNavigationVC = [[QYNavigationController alloc] initWithRootViewController:travelVc];
     QYNavigationController *thirdNavigationVC = [[QYNavigationController alloc] initWithRootViewController:mineVc];
-
+    
     self.viewControllers = @[firstNavigationVC,secondNavigationVC,thirdNavigationVC];
     
     firstNavigationVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:[UIImage imageNamed:@"home"] selectedImage:[UIImage imageNamed:@"home"]];
     [firstNavigationVC.tabBarItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} forState:UIControlStateNormal];
+    [firstNavigationVC.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: C_BUTTON_COLOR} forState:UIControlStateSelected];
+    firstNavigationVC.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, 10);
+    firstNavigationVC.tabBarItem.imageInsets=UIEdgeInsetsMake(10,0,-10,0);
     secondNavigationVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"行程" image:[UIImage imageNamed:@"travel"] selectedImage:[UIImage imageNamed:@"travel"]];
     [secondNavigationVC.tabBarItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} forState:UIControlStateNormal];
+    [secondNavigationVC.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: C_BUTTON_COLOR} forState:UIControlStateSelected];
+    secondNavigationVC.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, 10);
+    secondNavigationVC.tabBarItem.imageInsets=UIEdgeInsetsMake(10,0,-10,0);
     thirdNavigationVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"mine"] selectedImage:[UIImage imageNamed:@"mine"]];
     [thirdNavigationVC.tabBarItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} forState:UIControlStateNormal];
+    [thirdNavigationVC.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: C_BUTTON_COLOR} forState:UIControlStateSelected];
+    thirdNavigationVC.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, 10);
+    thirdNavigationVC.tabBarItem.imageInsets=UIEdgeInsetsMake(10,0,-10,0);
 }
 
 - (void)receiveNotification {
@@ -52,20 +61,20 @@
         QYNavigationController *mineNav = [self.viewControllers lastObject];
         mineNav.viewControllers = [NSArray arrayWithObject: [[QYMineViewController alloc] init]];
     }];
-//    //退出登录成功
-//    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:KNotificationLogOutSuccess object:nil] subscribeNext:^(NSNotification * _Nullable x) {
-//
-//        TFBNavigationController *mineNav = [self.viewControllers lastObject];
-//        mineNav.viewControllers = [NSArray arrayWithObject: [[TFBLoginManager new] getCurrentLoginController]];
-//
-//        dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
-//        // 延迟0.5秒执行。否则退出接口里获取不到tokenid,服务端无法完成token注销
-//        dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-//            // 清除用户登录信息
-//            [[TFBUserInfoManager sharedUserInfoManager] clearUserInfo];
-//        });
-//
-//    }];
+    //    //退出登录成功
+    //    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:KNotificationLogOutSuccess object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+    //
+    //        TFBNavigationController *mineNav = [self.viewControllers lastObject];
+    //        mineNav.viewControllers = [NSArray arrayWithObject: [[TFBLoginManager new] getCurrentLoginController]];
+    //
+    //        dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
+    //        // 延迟0.5秒执行。否则退出接口里获取不到tokenid,服务端无法完成token注销
+    //        dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+    //            // 清除用户登录信息
+    //            [[TFBUserInfoManager sharedUserInfoManager] clearUserInfo];
+    //        });
+    //
+    //    }];
 }
 
 

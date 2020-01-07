@@ -26,7 +26,7 @@
 }
 
 - (void)initViews {
-    QYRegisterView *registerView = [[QYRegisterView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight+kStatusBarHeight, kScreenWidth, kScreenHeight-kStatusBarHeight-kNavigationBarHeight-kTabbarHeight)];
+    QYRegisterView *registerView = [[QYRegisterView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight+kStatusBarHeight+40, kScreenWidth, kScreenHeight-kStatusBarHeight-kNavigationBarHeight-kTabbarHeight)];
     [[registerView.getVerificationCodeSubject ignore:nil] subscribeNext:^(id  _Nullable x) {
         [self.view makeToast:@"验证码已发送，请注意查收短信"];
         self.phoneNum = [NSString stringWithFormat:@"%@",x];

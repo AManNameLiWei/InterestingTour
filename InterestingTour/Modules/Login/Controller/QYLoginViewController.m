@@ -38,7 +38,7 @@
 }
 
 - (void)initViews {
-    QYLoginView *loginView = [[QYLoginView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight+kStatusBarHeight, kScreenWidth, kScreenHeight-kStatusBarHeight-kNavigationBarHeight-kTabbarHeight)];
+    QYLoginView *loginView = [[QYLoginView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight+kStatusBarHeight+50, kScreenWidth, kScreenHeight-kStatusBarHeight-kNavigationBarHeight-kTabbarHeight)];
     [[loginView.loginBtnClickSubject ignore:nil] subscribeNext:^(NSDictionary * _Nullable x) {
         MBProgressHUD *progressHud = [[MBProgressHUD alloc] initWithFrame:CGRectMake((kScreenWidth - 200)/2.0, (kScreenHeight - 200)/2.0, 200, 200)];
         [self.view addSubview:progressHud];
