@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QYTravelTableView : UITableView
 
+- (instancetype)initWithFrame:(CGRect)frame data:(nullable NSArray *)dataArray;
+- (void)reloadDataWithData:(NSArray *)dataArray;
 @end
 
 NS_ASSUME_NONNULL_END
