@@ -11,6 +11,7 @@
 #import <Realm/Realm.h>
 #import <RLMResults.h>
 #import "QYTravelModel.h"
+#import <MJRefresh.h>
 
 @interface QYTravelViewController ()
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -32,21 +33,14 @@
     [self reciveNotifications];
     self.view.backgroundColor = UIColor.greenColor;
     self.dataArray = [self getDataFromDB];
-    if (_travelTableView) {
-        [_travelTableView reloadDataWithData:self.dataArray];
-    }
+    [self tableViewReloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.dataArray = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    //界面消失时移除所有不喜欢的行程
-    RLMResults *travelObjects = [QYTravelModel objectsWhere:@"isLike = 0"];
-    [realm transactionWithBlock:^{
-        [realm deleteObjects:travelObjects];
-    }];
+    [self deleteUnlikeTravel];
 }
 
 - (void)initViews {
@@ -63,7 +57,6 @@
     adjustsScrollViewInsets_NO(_scrollView, self);
     
     _contentView = [[UIView alloc] init];
-    _contentView.userInteractionEnabled = YES;
     [_scrollView addSubview:_contentView];
     [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(_scrollView);
@@ -79,6 +72,7 @@
         make.height.equalTo(_scrollView);
         make.bottom.offset(0);
     }];
+    _travelTableView.mj_header = [self getCustomRefreshHeader];
 }
 
 #pragma mark ------- 从数据库查询数据
@@ -111,4 +105,34 @@
     }
 }
 
+#pragma mark ------- 删除取消收藏的旅程
+- (void)deleteUnlikeTravel {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    RLMResults *travelObjects = [QYTravelModel objectsWhere:@"isLike = 0"];
+    if (travelObjects.count > 0) {
+        [realm transactionWithBlock:^{
+            [realm deleteObjects:travelObjects];
+        }];
+    }
+    [self.travelTableView.mj_header endRefreshing];
+}
+
+#pragma mark ------- tableview刷新数据
+- (void)tableViewReloadData {
+    self.dataArray = [self getDataFromDB];
+    if (_travelTableView) {
+        [_travelTableView reloadDataWithData:self.dataArray];
+    }
+}
+
+#pragma mark ------- 自定义MJRefreshStateHeader
+- (MJRefreshStateHeader *)getCustomRefreshHeader {
+    MJRefreshStateHeader *header = [MJRefreshStateHeader headerWithRefreshingBlock:^{
+        [self deleteUnlikeTravel];
+        [self tableViewReloadData];
+    }];
+    [header setTitle:@"下拉刷新" forState:MJRefreshStateIdle];
+    [header setTitle:@"Loading ..." forState:MJRefreshStateRefreshing];
+    return header;
+}
 @end
