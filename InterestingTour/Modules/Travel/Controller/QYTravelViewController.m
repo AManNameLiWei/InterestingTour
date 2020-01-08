@@ -30,6 +30,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self reciveNotifications];
+    self.view.backgroundColor = UIColor.greenColor;
     self.dataArray = [self getDataFromDB];
     if (_travelTableView) {
         [_travelTableView reloadDataWithData:self.dataArray];
@@ -40,12 +41,17 @@
     [super viewWillDisappear:animated];
     self.dataArray = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    //界面消失时移除所有不喜欢的行程
+    RLMResults *travelObjects = [QYTravelModel objectsWhere:@"isLike = 0"];
+    [realm transactionWithBlock:^{
+        [realm deleteObjects:travelObjects];
+    }];
 }
 
 - (void)initViews {
     _scrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
     _scrollView.scrollEnabled = YES;
-    _scrollView.backgroundColor = UIColor.whiteColor;
     [self.view addSubview:_scrollView];
     [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(kStatusBarHeight + kNavigationBarHeight);
@@ -58,7 +64,6 @@
     
     _contentView = [[UIView alloc] init];
     _contentView.userInteractionEnabled = YES;
-    _contentView.backgroundColor = C_BUTTON_COLOR;
     [_scrollView addSubview:_contentView];
     [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(_scrollView);
@@ -71,7 +76,7 @@
     [_travelTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.offset(0);
         make.top.offset(0);
-        make.height.offset(400);
+        make.height.equalTo(_scrollView);
         make.bottom.offset(0);
     }];
 }
@@ -81,7 +86,7 @@
     NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:0];
     RLMResults<QYTravelModel *> *travels = [QYTravelModel allObjects];
     for (QYTravelModel *model in travels) {
-        NSDictionary *dataDic = @{@"imgUrl": model.picUrl, @"title": model.travelTitle, @"address": model.travelAddress};
+        NSDictionary *dataDic = @{@"imgUrl": model.picUrl, @"title": model.travelTitle, @"address": model.travelAddress, @"isLike": @(model.isLike)};
         [dataArray addObject:dataDic];
     }
     return dataArray;
@@ -98,15 +103,12 @@
     RLMRealm *realm = [RLMRealm defaultRealm];
     RLMResults *travelObject = [QYTravelModel objectsWhere:@"travelTitle = %@",key];
     if (travelObject.count > 0) {
-        [realm transactionWithBlock:^{
-            [realm deleteObject:travelObject.firstObject];
-        }];
-    } else {
-        [realm transactionWithBlock:^{
-            [realm addObject:travelObject.firstObject];
-        }];
+        for (QYTravelModel *model in travelObject) {
+            [realm transactionWithBlock:^{
+                model.isLike = [notifi.userInfo[@"isLike"] boolValue];
+            }];
+        }
     }
-    
 }
 
 @end

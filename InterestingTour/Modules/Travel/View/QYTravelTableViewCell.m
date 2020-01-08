@@ -9,6 +9,7 @@
 #import "QYTravelTableViewCell.h"
 #import <UIImageView+WebCache.h>
 #import <Masonry.h>
+#import <ReactiveObjC.h>
 
 @interface QYTravelTableViewCell ()
 @property (nonatomic, strong) UIImageView *iconImageView;
@@ -48,7 +49,6 @@
     }];
     
     _titleLabel = [[UILabel alloc] init];
-    _titleLabel.backgroundColor = UIColor.redColor;
     [self.contentView addSubview:_titleLabel];
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_iconImageView.mas_right).offset(10);
@@ -59,7 +59,6 @@
     _addressLabel = [[UILabel alloc] init];
     _addressLabel.numberOfLines = 0;
     _addressLabel.font = [UIFont systemFontOfSize:13];
-    _addressLabel.backgroundColor = UIColor.cyanColor;
     [self.contentView addSubview:_addressLabel];
     [_addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_iconImageView.mas_right).offset(10);
@@ -69,7 +68,8 @@
     }];
     
     _likeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_likeBtn addTarget:self action:@selector(likeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    _likeBtn.selected = YES;
+    [_likeBtn addTarget:self action:@selector(likeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [_likeBtn setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
     [self.contentView addSubview:_likeBtn];
     [_likeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -80,17 +80,20 @@
 }
 
 #pragma mark ------- 喜欢按钮点击
-- (void)likeBtnClick {
-    KPostNotificationWithParam(kNotificationLikeBtnClick, nil, @{@"title": _titleLabel.text});
+- (void)likeBtnClick:(UIButton *)sender {
     if (_likeBtn.selected) {
         //已经选中
-        [_likeBtn setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
+        [_likeBtn setImage:[UIImage imageNamed:@"dislike"] forState:UIControlStateNormal];
         _likeBtn.selected = NO;
     } else {
         //未选中
-        [_likeBtn setImage:[UIImage imageNamed:@"dislike"] forState:UIControlStateNormal];
+        [_likeBtn setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
         _likeBtn.selected = YES;
     }
+    if (self.clickBlock) {
+        self.clickBlock(_likeBtn.selected);
+    }
+    KPostNotificationWithParam(kNotificationLikeBtnClick, nil, (@{@"title": _titleLabel.text, @"isLike": @(_likeBtn.isSelected)}));
 }
 
 #pragma mark ------- 设置数据
@@ -98,6 +101,14 @@
     [_iconImageView sd_setImageWithURL:dataDic[@"imgUrl"]];
     _titleLabel.text = dataDic[@"title"];
     _addressLabel.text = dataDic[@"address"];
+    _likeBtn.selected = [dataDic[@"isLike"] boolValue];
+    if (_likeBtn.selected) {
+        //已经选中
+        [_likeBtn setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
+    } else {
+        //未选中
+        [_likeBtn setImage:[UIImage imageNamed:@"dislike"] forState:UIControlStateNormal];
+    }
 }
 
 @end

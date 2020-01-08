@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QYTravelTableViewCell : UITableViewCell
 
+@property (nonatomic, assign) BOOL isSelected;
+@property (nonatomic, copy) void(^clickBlock)(BOOL isSelected);
 - (void)setData:(NSDictionary *)dataDic;
 @end
 
