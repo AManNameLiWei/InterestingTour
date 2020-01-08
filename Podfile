@@ -20,4 +20,5 @@ target 'InterestingTour' do
     pod 'MBProgressHUD'
     pod 'UITableView+FDTemplateLayoutCell'
     pod 'Realm'
+    pod 'MJRefresh'
 end
