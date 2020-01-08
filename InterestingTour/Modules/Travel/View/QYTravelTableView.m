@@ -8,6 +8,7 @@
 
 #import "QYTravelTableView.h"
 #import "QYTravelTableViewCell.h"
+#import "QYTravelSpaceTableViewCell.h"
 #import <UITableView+FDTemplateLayoutCell.h>
 
 @interface QYTravelTableView ()<UITableViewDelegate, UITableViewDataSource>
@@ -24,6 +25,7 @@
         self.dataSource = self;
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self registerClass:[QYTravelTableViewCell class] forCellReuseIdentifier:@"QYTravelTableViewCellID"];
+        [self registerClass:[QYTravelSpaceTableViewCell class] forCellReuseIdentifier:@"QYTravelSpaceTableViewCellID"];
     }
     return self;
 }
@@ -37,28 +39,35 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return [tableView fd_heightForCellWithIdentifier:@"QYTravelTableViewCellID" cacheByIndexPath:indexPath configuration:^(QYTravelTableViewCell *cell) {
-//        // 配置 cell 的数据源，和 "cellForRow" 干的事一致，比如：
-//        [cell setData:self.dataArray[indexPath.row]];
-//    }];
-    return 100;
+    if ([self.dataArray.firstObject allKeys].count == 0) {
+        return kScreenHeight-kNavigationBarHeight-kStatusBarHeight-kTabbarHeight;
+    }else {
+        return 100;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    QYTravelTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QYTravelTableViewCellID" forIndexPath:indexPath];
-    [cell setData:self.dataArray[indexPath.row]];
-    cell.clickBlock = ^(BOOL isSelected) {
-        NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:self.dataArray[indexPath.row]];
-        [dic setValue:@(isSelected) forKey:@"isLike"];
-        [self.dataArray replaceObjectAtIndex:indexPath.row withObject:dic];
-    };
-    
-    return cell;
+    if ([self.dataArray.firstObject allKeys].count == 0) {
+        QYTravelSpaceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QYTravelSpaceTableViewCellID" forIndexPath:indexPath];
+        return cell;
+    }else {
+        QYTravelTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QYTravelTableViewCellID" forIndexPath:indexPath];
+        [cell setData:self.dataArray[indexPath.row]];
+        cell.clickBlock = ^(BOOL isSelected) {
+            NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:self.dataArray[indexPath.row]];
+            [dic setValue:@(isSelected) forKey:@"isLike"];
+            [self.dataArray replaceObjectAtIndex:indexPath.row withObject:dic];
+        };
+        return cell;
+    }
 }
 
 #pragma mark ------- 更新数据
 - (void)reloadDataWithData:(NSArray *)dataArray {
     self.dataArray = [NSMutableArray arrayWithArray:dataArray];
+    if (self.dataArray.count == 0) {
+        [self.dataArray addObject:@{}];
+    }
     [self reloadData];
 }
 @end

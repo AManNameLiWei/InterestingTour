@@ -45,6 +45,7 @@
 		D07EEFF823BB2E4A002C64F2 /* QYDetailInformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D07EEFF723BB2E4A002C64F2 /* QYDetailInformationTableViewCell.m */; };
 		D07EEFFC23BB469B002C64F2 /* LWJumpToMap.m in Sources */ = {isa = PBXBuildFile; fileRef = D07EEFFB23BB469B002C64F2 /* LWJumpToMap.m */; };
 		D080707223C40CA500F3A326 /* QYMyInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D080707123C40CA500F3A326 /* QYMyInfoView.m */; };
+		D084657323C5D3CE00C0655D /* QYTravelSpaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D084657223C5D3CE00C0655D /* QYTravelSpaceTableViewCell.m */; };
 		D0D0008A23C4293D001FBB84 /* QYTravelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D0008923C4293D001FBB84 /* QYTravelTableViewCell.m */; };
 		D0E451E123AC9F3A005AD519 /* QYLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E451E023AC9F3A005AD519 /* QYLoginView.m */; };
 		D0FB447E23AB63CF0012783D /* QYHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FB447D23AB63CF0012783D /* QYHomeViewController.m */; };
@@ -133,6 +134,8 @@
 		D07EEFFB23BB469B002C64F2 /* LWJumpToMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWJumpToMap.m; sourceTree = "<group>"; };
 		D080707023C40CA500F3A326 /* QYMyInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYMyInfoView.h; sourceTree = "<group>"; };
 		D080707123C40CA500F3A326 /* QYMyInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMyInfoView.m; sourceTree = "<group>"; };
+		D084657123C5D3CE00C0655D /* QYTravelSpaceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYTravelSpaceTableViewCell.h; sourceTree = "<group>"; };
+		D084657223C5D3CE00C0655D /* QYTravelSpaceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYTravelSpaceTableViewCell.m; sourceTree = "<group>"; };
 		D0D0008823C4293D001FBB84 /* QYTravelTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYTravelTableViewCell.h; sourceTree = "<group>"; };
 		D0D0008923C4293D001FBB84 /* QYTravelTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYTravelTableViewCell.m; sourceTree = "<group>"; };
 		D0E451DF23AC9F3A005AD519 /* QYLoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYLoginView.h; sourceTree = "<group>"; };
@@ -566,6 +569,8 @@
 				D079490D23BF32B50076BF1E /* QYTravelTableView.m */,
 				D0D0008823C4293D001FBB84 /* QYTravelTableViewCell.h */,
 				D0D0008923C4293D001FBB84 /* QYTravelTableViewCell.m */,
+				D084657123C5D3CE00C0655D /* QYTravelSpaceTableViewCell.h */,
+				D084657223C5D3CE00C0655D /* QYTravelSpaceTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -815,6 +820,7 @@
 				D068AB5823AB99750034D427 /* QYBaseModel.m in Sources */,
 				D079490E23BF32B50076BF1E /* QYTravelTableView.m in Sources */,
 				D014E3B223AB5DE6003218CC /* QYRootViewController.m in Sources */,
+				D084657323C5D3CE00C0655D /* QYTravelSpaceTableViewCell.m in Sources */,
 				D03A9AA523B9FE8F008B41B5 /* QYHomeLandscapeCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
