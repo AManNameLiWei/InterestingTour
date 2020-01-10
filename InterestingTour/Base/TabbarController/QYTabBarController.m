@@ -28,9 +28,11 @@
 
 - (void)loadViewControllers {
     QYHomeViewController *homeVc = [QYHomeViewController new];
-    QYTravelViewController *travelVc = [QYTravelViewController new];
-    QYLoginViewController *mineVc = [[QYLoginViewController alloc] init];
-    mineVc.navigationItem.leftBarButtonItem = nil;
+//    QYLoginViewController *travelVc = [[QYLoginViewController alloc] init];
+    QYTravelViewController *travelVc = [[QYTravelViewController alloc] init];
+
+    travelVc.navigationItem.leftBarButtonItem = nil;
+    QYMineViewController *mineVc = [QYMineViewController new];
     
     QYNavigationController *firstNavigationVC = [[QYNavigationController alloc] initWithRootViewController:homeVc];
     QYNavigationController *secondNavigationVC = [[QYNavigationController alloc] initWithRootViewController:travelVc];
@@ -58,9 +60,8 @@
 - (void)receiveNotification {
     // 监听登录成功
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:kNotificationNameLoginSuccess object:nil] subscribeNext:^(NSNotification * _Nullable x) {
-        
-        QYNavigationController *mineNav = [self.viewControllers lastObject];
-        mineNav.viewControllers = [NSArray arrayWithObject: [[QYMineViewController alloc] init]];
+        QYNavigationController *travelNav = [self.viewControllers objectAtIndex:1];
+        travelNav.viewControllers = [NSArray arrayWithObject: [[QYTravelViewController alloc] init]];
     }];
     //    //退出登录成功
     //    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:KNotificationLogOutSuccess object:nil] subscribeNext:^(NSNotification * _Nullable x) {

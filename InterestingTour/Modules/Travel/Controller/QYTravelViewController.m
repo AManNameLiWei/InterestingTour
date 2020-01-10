@@ -12,12 +12,14 @@
 #import <RLMResults.h>
 #import "QYTravelModel.h"
 #import <MJRefresh.h>
+#import "QYTravelNavigationBarView.h"
 
 @interface QYTravelViewController ()
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) QYTravelTableView *travelTableView;
+@property (nonatomic, strong) QYTravelNavigationBarView *navigationBarView;
 @end
 
 @implementation QYTravelViewController
@@ -25,13 +27,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"行程";
+    [self setupNavigationBar];
     [self initViews];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self reciveNotifications];
-    self.view.backgroundColor = UIColor.greenColor;
     self.dataArray = [self getDataFromDB];
     [self tableViewReloadData];
 }
@@ -41,6 +43,13 @@
     self.dataArray = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self deleteUnlikeTravel];
+}
+
+- (void)setupNavigationBar {
+    self.navigationController.navigationBar.hidden = YES;
+    self.navigationController.navigationBar.barStyle = UIBaselineAdjustmentNone;
+    _navigationBarView = [[QYTravelNavigationBarView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kStatusBarHeight+kNavigationBarHeight)];
+    [self.view addSubview:_navigationBarView];
 }
 
 - (void)initViews {
