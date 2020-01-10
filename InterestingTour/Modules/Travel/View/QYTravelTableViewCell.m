@@ -20,16 +20,10 @@
 
 @implementation QYTravelTableViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    self.contentView.backgroundColor = highlighted ? [UIColor groupTableViewBackgroundColor] : UIColor.whiteColor;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
-}
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

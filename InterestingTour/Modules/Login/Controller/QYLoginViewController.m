@@ -13,6 +13,7 @@
 #import <BmobSDK/Bmob.h>
 #import <Toast.h>
 #import <MBProgressHUD.h>
+#import "QYUserInfoManager.h"
 
 @interface QYLoginViewController ()
 
@@ -20,11 +21,17 @@
 
 @implementation QYLoginViewController
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self setupNavigationBar];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"登录";
     self.view.backgroundColor = UIColor.whiteColor;
-    [self setupNavigationBar];
     [self initViews];
 }
 
@@ -35,6 +42,13 @@
     [registerBtn setTitle:NSLocalizedString(@"register_btn", nil) forState:UIControlStateNormal];
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:registerBtn];
     self.navigationItem.rightBarButtonItem = rightBarItem;
+    
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(backBarBtnItemClick) forControlEvents:UIControlEventTouchUpInside];
+    [backBtn setImage:[UIImage imageNamed:@"blackBack"] forState:UIControlStateNormal];
+    UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+    self.navigationItem.leftBarButtonItem = leftBarItem;
 }
 
 - (void)initViews {
@@ -47,7 +61,10 @@
         [progressHud showAnimated:YES];
         [BmobUser loginInbackgroundWithAccount:x[@"phoneNum"] andPassword:x[@"pwd"] block:^(BmobUser *user, NSError *error) {
             if (user) {
+                // 发送登录成功的通知并保存user
                 KPostNotification(kNotificationNameLoginSuccess, nil);
+                // 保存user
+                [QYUserInfoManager sharedManager].user = user;
                 [progressHud hideAnimated:YES];
             } else {
                 [self.view makeToast:@"账号或密码错误，请重新输入"];
@@ -63,4 +80,7 @@
     [self.navigationController pushViewController:registerVc animated:YES];
 }
 
+- (void)backBarBtnItemClick {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
 @end

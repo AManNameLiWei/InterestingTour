@@ -16,6 +16,8 @@
 #import <RLMRealm.h>
 #import <RLMResults.h>
 #import <Toast.h>
+#import "QYLoginManager.h"
+#import "QYUserInfoManager.h"
 
 @interface QYLandscapeViewController ()
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -145,21 +147,27 @@
 
 #pragma mark ------- 加入行程按钮点击
 - (void)addTravelBtnBtnClick {
-    QYTravelModel *travelModel = [QYTravelModel new];
-    travelModel.picUrl = [self getQyCycleViewDataArray].firstObject;
-    travelModel.travelTitle = self.attractionModel.name;
-    travelModel.isLike = YES;
-    travelModel.travelAddress = self.attractionModel.address;
-    
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    RLMResults<QYTravelModel *> *travel = [QYTravelModel objectsWhere:@"travelTitle = %@", travelModel.travelTitle];
-    if (travel.count > 0) {
-        [self.view makeToast:@"已加入您的行程,请勿重复操作"];
-    }else {
-        [realm transactionWithBlock:^{
-            [realm addObject:travelModel];
-        }];
-        [self.view makeToast:@"行程已添加,请在行程页面查看"];
+    if ([QYUserInfoManager sharedManager].isLogin) {
+        //已登录
+        QYTravelModel *travelModel = [QYTravelModel new];
+        travelModel.picUrl = [self getQyCycleViewDataArray].firstObject;
+        travelModel.travelTitle = self.attractionModel.name;
+        travelModel.isLike = YES;
+        travelModel.travelAddress = self.attractionModel.address;
+
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        RLMResults<QYTravelModel *> *travel = [QYTravelModel objectsWhere:@"travelTitle = %@", travelModel.travelTitle];
+        if (travel.count > 0) {
+            [self.view makeToast:@"已加入您的行程,请勿重复操作"];
+        }else {
+            [realm transactionWithBlock:^{
+                [realm addObject:travelModel];
+            }];
+            [self.view makeToast:@"行程已添加,请在行程页面查看"];
+        }
+    } else {
+        //未登录
+        [[QYLoginManager sharedManager] presentLoginViewController:self];
     }
 }
 

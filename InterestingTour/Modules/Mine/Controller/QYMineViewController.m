@@ -34,10 +34,8 @@
     }];
 }
 
-
 - (void)initViews {
     
 }
-
 
 @end

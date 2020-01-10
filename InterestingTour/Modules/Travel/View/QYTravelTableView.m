@@ -62,10 +62,15 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 #pragma mark ------- 更新数据
 - (void)reloadDataWithData:(NSArray *)dataArray {
     self.dataArray = [NSMutableArray arrayWithArray:dataArray];
     if (self.dataArray.count == 0) {
+        //没有数据时传入一个空字典,作为判断标识
         [self.dataArray addObject:@{}];
     }
     [self reloadData];
