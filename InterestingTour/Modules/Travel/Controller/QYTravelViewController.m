@@ -49,6 +49,13 @@
     self.navigationController.navigationBar.hidden = YES;
     self.navigationController.navigationBar.barStyle = UIBaselineAdjustmentNone;
     _navigationBarView = [[QYTravelNavigationBarView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kStatusBarHeight+kNavigationBarHeight)];
+    __weak typeof(self) weakSelf = self;
+    _navigationBarView.searchBtnClickBlock = ^(NSString * _Nonnull searchText) {
+        [weakSelf searchBtnClick:searchText];
+    };
+    [_navigationBarView.textFieldIsNullSubject subscribeNext:^(id  _Nullable x) {
+        [self tableViewReloadData];
+    }];
     [self.view addSubview:_navigationBarView];
 }
 
@@ -144,4 +151,18 @@
     [header setTitle:@"Loading ..." forState:MJRefreshStateRefreshing];
     return header;
 }
+
+- (void)searchBtnClick:(NSString *)searchStr {
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"travelTitle CONTAINS[c] %@",searchStr];
+    RLMResults *travelObjects = [QYTravelModel objectsWithPredicate:pred];
+    NSMutableArray *dataArray = [NSMutableArray arrayWithCapacity:0];
+    if (travelObjects.count > 0) {
+        for (QYTravelModel *model in travelObjects) {
+            NSDictionary *dataDic = @{@"imgUrl": model.picUrl, @"title": model.travelTitle, @"address": model.travelAddress, @"isLike": @(model.isLike)};
+            [dataArray addObject:dataDic];
+        }
+    }
+    [_travelTableView reloadDataWithData:dataArray];
+}
+
 @end

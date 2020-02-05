@@ -7,11 +7,12 @@
 //
 
 #import "QYBaseView.h"
-
+@class RACSubject;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QYTravelNavigationBarView : QYBaseView
-
+@property (nonatomic, strong) RACSubject *textFieldIsNullSubject;
+@property (nonatomic, copy) void(^searchBtnClickBlock) (NSString *searchText);
 @end
 
 NS_ASSUME_NONNULL_END
